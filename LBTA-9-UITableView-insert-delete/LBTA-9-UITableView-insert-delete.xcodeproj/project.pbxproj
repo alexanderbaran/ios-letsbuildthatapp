@@ -1,0 +1,299 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A322A9191F62B5AF00CEB397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A322A9181F62B5AF00CEB397 /* AppDelegate.swift */; };
+		A322A91B1F62B5AF00CEB397 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A322A91A1F62B5AF00CEB397 /* MyTableViewController.swift */; };
+		A322A9201F62B5AF00CEB397 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A322A91F1F62B5AF00CEB397 /* Assets.xcassets */; };
+		A322A9231F62B5AF00CEB397 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A322A9211F62B5AF00CEB397 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A322A9151F62B5AF00CEB397 /* LBTA-9-UITableView-insert-delete.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LBTA-9-UITableView-insert-delete.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A322A9181F62B5AF00CEB397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A322A91A1F62B5AF00CEB397 /* MyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
+		A322A91F1F62B5AF00CEB397 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A322A9221F62B5AF00CEB397 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A322A9241F62B5AF00CEB397 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A322A9121F62B5AF00CEB397 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A322A90C1F62B5AF00CEB397 = {
+			isa = PBXGroup;
+			children = (
+				A322A9171F62B5AF00CEB397 /* LBTA-9-UITableView-insert-delete */,
+				A322A9161F62B5AF00CEB397 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A322A9161F62B5AF00CEB397 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A322A9151F62B5AF00CEB397 /* LBTA-9-UITableView-insert-delete.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A322A9171F62B5AF00CEB397 /* LBTA-9-UITableView-insert-delete */ = {
+			isa = PBXGroup;
+			children = (
+				A322A9181F62B5AF00CEB397 /* AppDelegate.swift */,
+				A322A91A1F62B5AF00CEB397 /* MyTableViewController.swift */,
+				A322A91F1F62B5AF00CEB397 /* Assets.xcassets */,
+				A322A9211F62B5AF00CEB397 /* LaunchScreen.storyboard */,
+				A322A9241F62B5AF00CEB397 /* Info.plist */,
+			);
+			path = "LBTA-9-UITableView-insert-delete";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A322A9141F62B5AF00CEB397 /* LBTA-9-UITableView-insert-delete */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A322A9271F62B5AF00CEB397 /* Build configuration list for PBXNativeTarget "LBTA-9-UITableView-insert-delete" */;
+			buildPhases = (
+				A322A9111F62B5AF00CEB397 /* Sources */,
+				A322A9121F62B5AF00CEB397 /* Frameworks */,
+				A322A9131F62B5AF00CEB397 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LBTA-9-UITableView-insert-delete";
+			productName = "LBTA-9-UITableView-insert-delete";
+			productReference = A322A9151F62B5AF00CEB397 /* LBTA-9-UITableView-insert-delete.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A322A90D1F62B5AF00CEB397 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Alexander Baran";
+				TargetAttributes = {
+					A322A9141F62B5AF00CEB397 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = ZQ32RSDG42;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A322A9101F62B5AF00CEB397 /* Build configuration list for PBXProject "LBTA-9-UITableView-insert-delete" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A322A90C1F62B5AF00CEB397;
+			productRefGroup = A322A9161F62B5AF00CEB397 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A322A9141F62B5AF00CEB397 /* LBTA-9-UITableView-insert-delete */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A322A9131F62B5AF00CEB397 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A322A9231F62B5AF00CEB397 /* LaunchScreen.storyboard in Resources */,
+				A322A9201F62B5AF00CEB397 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A322A9111F62B5AF00CEB397 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A322A91B1F62B5AF00CEB397 /* MyTableViewController.swift in Sources */,
+				A322A9191F62B5AF00CEB397 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A322A9211F62B5AF00CEB397 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A322A9221F62B5AF00CEB397 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A322A9251F62B5AF00CEB397 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A322A9261F62B5AF00CEB397 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A322A9281F62B5AF00CEB397 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZQ32RSDG42;
+				INFOPLIST_FILE = "LBTA-9-UITableView-insert-delete/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alexanderbaran.LBTA-9-UITableView-insert-delete";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A322A9291F62B5AF00CEB397 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZQ32RSDG42;
+				INFOPLIST_FILE = "LBTA-9-UITableView-insert-delete/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alexanderbaran.LBTA-9-UITableView-insert-delete";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A322A9101F62B5AF00CEB397 /* Build configuration list for PBXProject "LBTA-9-UITableView-insert-delete" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A322A9251F62B5AF00CEB397 /* Debug */,
+				A322A9261F62B5AF00CEB397 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A322A9271F62B5AF00CEB397 /* Build configuration list for PBXNativeTarget "LBTA-9-UITableView-insert-delete" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A322A9281F62B5AF00CEB397 /* Debug */,
+				A322A9291F62B5AF00CEB397 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A322A90D1F62B5AF00CEB397 /* Project object */;
+}

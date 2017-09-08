@@ -1,0 +1,9 @@
+platform :ios, '10.3'
+# use_frameworks!
+
+target 'LBTA-6-facebook-ios-sdk' do
+    pod 'Bolts'
+    pod 'FBSDKCoreKit'
+    pod 'FBSDKShareKit'
+    pod 'FBSDKLoginKit'
+end

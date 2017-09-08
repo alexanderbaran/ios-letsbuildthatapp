@@ -1,0 +1,2 @@
+target 'LBTA-5-twitter-client'
+pod 'STTwitter'

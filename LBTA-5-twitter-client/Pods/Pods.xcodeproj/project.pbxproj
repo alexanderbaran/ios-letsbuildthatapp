@@ -1,0 +1,619 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		034AA9517458BF06BF812E93381DD456 /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B38CB0EED1C483F7500497F31623A0C0 /* STHTTPRequest.m */; };
+		16D8146ED3977803949D94328308B56B /* NSError+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 983A55115DEA498BF2DE56795EA3927D /* NSError+STTwitter.m */; };
+		1C2C035B9BB216B6D3E89A43E845F64F /* STTwitterAppOnly.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F2FC33C86D41B452B068F08D1517B4A /* STTwitterAppOnly.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1ECECBE7823D6917F49C2BCA53534B9A /* BAVPlistNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF1D52E48A00FAFEE84E87DF5C72FD0 /* BAVPlistNode.m */; };
+		2084A3FE273445CEC6CE97C24F031F10 /* JSONSyntaxHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 933A48D80BBFCE26DC1D127F5A404F61 /* JSONSyntaxHighlight.m */; };
+		26642465EE24D3130E44128F1ABCCA8F /* STHTTPRequest+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7971FB630301FD9AB9AC7614817B5166 /* STHTTPRequest+STTwitter.m */; };
+		274787547A29F928260FF54942FEAD40 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3697CF7F3C8319A315CECC9856B7E5D /* Twitter.framework */; };
+		27BBFB04223E1362C0C0063BFB487B97 /* STTwitterOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6E8CAC1569A6CF4E33D2739A45B697 /* STTwitterOAuth.m */; };
+		291DDDA6B364B857F929707424EFDD57 /* STTwitterOSRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C1D32082D872DC133A754761BF4AAFA1 /* STTwitterOSRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D379B7D7BDD9E4C7297736387E1BFFC /* STHTTPRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 2021DDE01682B811CB7FBCAB4F921E8C /* STHTTPRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E04A6A34A0A1A94E67F867639172576 /* STTwitterOS.m in Sources */ = {isa = PBXBuildFile; fileRef = E740FC75636F503DF2C92B865BE29F20 /* STTwitterOS.m */; };
+		31800B732AEA90ADF941426968C2DCF3 /* STTwitter.h in Headers */ = {isa = PBXBuildFile; fileRef = C19FED4D5313C4269E963A7704145FA6 /* STTwitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3C70DFD70AF14A30DDB59D111587F22F /* NSString+STTwitter.h in Headers */ = {isa = PBXBuildFile; fileRef = CEA230353AD69850A6B9606F1C534B42 /* NSString+STTwitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		42BA0940B039C7803CEF8C5C5BD02783 /* STTwitterStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C61CAACF1DC240D3C4F474C8841AF16 /* STTwitterStreamParser.m */; };
+		47BCA8A1D881CABB3B403A5A6DA346C6 /* STTwitterProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = B712C5C41513CDC1D5C9180FB3624FB8 /* STTwitterProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		584CA7678B4ADD688C8A2B53754138F9 /* STTwitterOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D545DFFB489F18CCFC7C1E893022BA /* STTwitterOAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FED096852110BDD8ECFDC3988DDDDE6 /* STTwitterRequestProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = DE821BEA6E4DD4D691E6C4060BCA151A /* STTwitterRequestProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		736B2E39B2D7ABA113F252D7A22483FF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D58C7F76492A3C3F09F14FC4ED85B77 /* QuartzCore.framework */; };
+		769EE355D3B6393E63C9AFAA360AC90A /* NSError+STTwitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 982A7824E260E966E9F99F460F9DA97E /* NSError+STTwitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84217C1B7FD9F21AFE925225DDD7B2D8 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A56298381E1785592514C3E42F48503 /* Accounts.framework */; };
+		8C23DF08D49CC808FF34ABC941C3DE16 /* STTwitterOS.h in Headers */ = {isa = PBXBuildFile; fileRef = A3303B4F5ECF713D22C5545DB4AA9C71 /* STTwitterOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C8AC2DBDB78199F0402E64EAECE093A /* STTwitterAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 45FC38473A5FB1CD818794FA1D96A935 /* STTwitterAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F34C7D7B7F44A48746CD98D5397F8BD /* STTwitter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C61B6385A82730AEEE82255960888C4 /* STTwitter-dummy.m */; };
+		9D9C8DE774AE1903D4C62555C16A4462 /* STTwitterAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB9E67313416C38C820EC1256BC6466 /* STTwitterAPI.m */; };
+		A13BD140E83345B6B5B7A66BC2470727 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC4718476BD04FBF19A49F3242FEE426 /* Foundation.framework */; };
+		A3AB32AF14AA3AAF0EC61F9D9AFA4439 /* NSDateFormatter+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 580D7E49CC1E95047BB39624BEF4FCB8 /* NSDateFormatter+STTwitter.m */; };
+		A445ADE94E51AD958100FE5B0044AA75 /* NSDateFormatter+STTwitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 561DBA231D72E5509488D1B8BDAA5FE0 /* NSDateFormatter+STTwitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A46319A284152A3FBC17BDB99DB965D9 /* STTwitterOSRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C785FD0915099FCD0BC9654DC028C8 /* STTwitterOSRequest.m */; };
+		A5FCBE22CA796F08D8F807F8C59E6372 /* STTwitterHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 740A1C3C0C893088CDE7257D68703F5E /* STTwitterHTML.m */; };
+		A7CF81D4ABC25E9147EC37DFCBC453D8 /* NSString+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B62323B268E9F08ABBEC41474B57D5 /* NSString+STTwitter.m */; };
+		AA493BD97FD62BA3B37A04C134C420F4 /* Pods-LBTA-5-twitter-client-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF36D47EB86BA8739E2BE8F50727958 /* Pods-LBTA-5-twitter-client-dummy.m */; };
+		B28DFEC175617CFB28AE2640C3A8CB59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F393737B35317F9E4042BBB76D9A509 /* CoreGraphics.framework */; };
+		B586F6C644D765304F39AB2C82CA4E04 /* BAVPlistNode.h in Headers */ = {isa = PBXBuildFile; fileRef = A01F754C69F7B1354D085689B85E6114 /* BAVPlistNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B5DEE31DE72CBBF7132EA9C2F85EBDB3 /* STHTTPRequest+STTwitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 8012AFB8C4D96066ADDF8F3663C4515B /* STHTTPRequest+STTwitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B957E30B2D396388FE8BC9ECEE91A0AB /* JSONSyntaxHighlight.h in Headers */ = {isa = PBXBuildFile; fileRef = C2A4338C5F488579E05D5CFF00DA752D /* JSONSyntaxHighlight.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C096FF09284FE29093DBC98F2CB98E40 /* STTwitterHTML.h in Headers */ = {isa = PBXBuildFile; fileRef = DB5BCCBC7E5A5C4BD8C5CE828A93F983 /* STTwitterHTML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C437BEAE0D2B9415652418C858DFA08B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC4718476BD04FBF19A49F3242FEE426 /* Foundation.framework */; };
+		CC5AD1932ADFE9D3EC69245203D12BAB /* STTwitterAppOnly.m in Sources */ = {isa = PBXBuildFile; fileRef = FE32ABDE2EC88F20FBCBE85E1EEECB60 /* STTwitterAppOnly.m */; };
+		D13B62537C730A1883BFE5CB0BC1E90A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B40402AC8D5CC7E33B4B29C4D08AF2 /* UIKit.framework */; };
+		FE8B65375637BF1D521664C9E60DC79E /* STTwitterStreamParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2969BF3C449EFD8F169C0EB94E7E724F /* STTwitterStreamParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AAE6371E769FD95A1FE6B2A9FF9103CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9566C969C72ED23F029AD15B0B3EA819;
+			remoteInfo = STTwitter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0B6E8CAC1569A6CF4E33D2739A45B697 /* STTwitterOAuth.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STTwitterOAuth.m; path = STTwitter/STTwitterOAuth.m; sourceTree = "<group>"; };
+		1BE942E87D440A790F0C861FA52EF253 /* Pods-LBTA-5-twitter-client-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LBTA-5-twitter-client-resources.sh"; sourceTree = "<group>"; };
+		2021DDE01682B811CB7FBCAB4F921E8C /* STHTTPRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STHTTPRequest.h; path = STTwitter/Vendor/STHTTPRequest.h; sourceTree = "<group>"; };
+		21B40402AC8D5CC7E33B4B29C4D08AF2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		21D545DFFB489F18CCFC7C1E893022BA /* STTwitterOAuth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STTwitterOAuth.h; path = STTwitter/STTwitterOAuth.h; sourceTree = "<group>"; };
+		2969BF3C449EFD8F169C0EB94E7E724F /* STTwitterStreamParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STTwitterStreamParser.h; path = STTwitter/STTwitterStreamParser.h; sourceTree = "<group>"; };
+		2A56298381E1785592514C3E42F48503 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Accounts.framework; sourceTree = DEVELOPER_DIR; };
+		2BF9B6BEBA7643EB4C4281D4ABF95C69 /* Pods-LBTA-5-twitter-client-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LBTA-5-twitter-client-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3133BCA5F4899668DFB746002EBE3DFF /* STTwitter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = STTwitter.xcconfig; sourceTree = "<group>"; };
+		3D58C7F76492A3C3F09F14FC4ED85B77 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		45EAE905C172B276EA137704A561984D /* libSTTwitter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSTTwitter.a; path = libSTTwitter.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		45FC38473A5FB1CD818794FA1D96A935 /* STTwitterAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STTwitterAPI.h; path = STTwitter/STTwitterAPI.h; sourceTree = "<group>"; };
+		4CBC34EC027348D34AB88B0E9881D53C /* Pods-LBTA-5-twitter-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LBTA-5-twitter-client.debug.xcconfig"; sourceTree = "<group>"; };
+		561DBA231D72E5509488D1B8BDAA5FE0 /* NSDateFormatter+STTwitter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDateFormatter+STTwitter.h"; path = "STTwitter/NSDateFormatter+STTwitter.h"; sourceTree = "<group>"; };
+		580D7E49CC1E95047BB39624BEF4FCB8 /* NSDateFormatter+STTwitter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDateFormatter+STTwitter.m"; path = "STTwitter/NSDateFormatter+STTwitter.m"; sourceTree = "<group>"; };
+		5C61B6385A82730AEEE82255960888C4 /* STTwitter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "STTwitter-dummy.m"; sourceTree = "<group>"; };
+		696846C0B5DDDE2CC4C38B1EA196C67A /* Pods-LBTA-5-twitter-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LBTA-5-twitter-client.release.xcconfig"; sourceTree = "<group>"; };
+		6F393737B35317F9E4042BBB76D9A509 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		740A1C3C0C893088CDE7257D68703F5E /* STTwitterHTML.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STTwitterHTML.m; path = STTwitter/STTwitterHTML.m; sourceTree = "<group>"; };
+		7971FB630301FD9AB9AC7614817B5166 /* STHTTPRequest+STTwitter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "STHTTPRequest+STTwitter.m"; path = "STTwitter/STHTTPRequest+STTwitter.m"; sourceTree = "<group>"; };
+		79C785FD0915099FCD0BC9654DC028C8 /* STTwitterOSRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STTwitterOSRequest.m; path = STTwitter/STTwitterOSRequest.m; sourceTree = "<group>"; };
+		7C61CAACF1DC240D3C4F474C8841AF16 /* STTwitterStreamParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STTwitterStreamParser.m; path = STTwitter/STTwitterStreamParser.m; sourceTree = "<group>"; };
+		8012AFB8C4D96066ADDF8F3663C4515B /* STHTTPRequest+STTwitter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "STHTTPRequest+STTwitter.h"; path = "STTwitter/STHTTPRequest+STTwitter.h"; sourceTree = "<group>"; };
+		8F2FC33C86D41B452B068F08D1517B4A /* STTwitterAppOnly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STTwitterAppOnly.h; path = STTwitter/STTwitterAppOnly.h; sourceTree = "<group>"; };
+		933A48D80BBFCE26DC1D127F5A404F61 /* JSONSyntaxHighlight.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONSyntaxHighlight.m; path = STTwitter/Vendor/JSONSyntaxHighlight.m; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		982A7824E260E966E9F99F460F9DA97E /* NSError+STTwitter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+STTwitter.h"; path = "STTwitter/NSError+STTwitter.h"; sourceTree = "<group>"; };
+		983A55115DEA498BF2DE56795EA3927D /* NSError+STTwitter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSError+STTwitter.m"; path = "STTwitter/NSError+STTwitter.m"; sourceTree = "<group>"; };
+		9AF36D47EB86BA8739E2BE8F50727958 /* Pods-LBTA-5-twitter-client-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LBTA-5-twitter-client-dummy.m"; sourceTree = "<group>"; };
+		A01F754C69F7B1354D085689B85E6114 /* BAVPlistNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BAVPlistNode.h; path = STTwitter/Vendor/BAVPlistNode.h; sourceTree = "<group>"; };
+		A3303B4F5ECF713D22C5545DB4AA9C71 /* STTwitterOS.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STTwitterOS.h; path = STTwitter/STTwitterOS.h; sourceTree = "<group>"; };
+		AD23602F488629E484A8DE56DCB73624 /* Pods-LBTA-5-twitter-client-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LBTA-5-twitter-client-frameworks.sh"; sourceTree = "<group>"; };
+		B19021E15ED03995D990A74269D7A463 /* STTwitter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "STTwitter-prefix.pch"; sourceTree = "<group>"; };
+		B38CB0EED1C483F7500497F31623A0C0 /* STHTTPRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STHTTPRequest.m; path = STTwitter/Vendor/STHTTPRequest.m; sourceTree = "<group>"; };
+		B712C5C41513CDC1D5C9180FB3624FB8 /* STTwitterProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STTwitterProtocol.h; path = STTwitter/STTwitterProtocol.h; sourceTree = "<group>"; };
+		BC4718476BD04FBF19A49F3242FEE426 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		C0B62323B268E9F08ABBEC41474B57D5 /* NSString+STTwitter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+STTwitter.m"; path = "STTwitter/NSString+STTwitter.m"; sourceTree = "<group>"; };
+		C19FED4D5313C4269E963A7704145FA6 /* STTwitter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STTwitter.h; path = STTwitter/STTwitter.h; sourceTree = "<group>"; };
+		C1D32082D872DC133A754761BF4AAFA1 /* STTwitterOSRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STTwitterOSRequest.h; path = STTwitter/STTwitterOSRequest.h; sourceTree = "<group>"; };
+		C2A4338C5F488579E05D5CFF00DA752D /* JSONSyntaxHighlight.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONSyntaxHighlight.h; path = STTwitter/Vendor/JSONSyntaxHighlight.h; sourceTree = "<group>"; };
+		CEA230353AD69850A6B9606F1C534B42 /* NSString+STTwitter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+STTwitter.h"; path = "STTwitter/NSString+STTwitter.h"; sourceTree = "<group>"; };
+		D61EFA4D6E4BA841FEE9CC7826536750 /* Pods-LBTA-5-twitter-client-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LBTA-5-twitter-client-acknowledgements.plist"; sourceTree = "<group>"; };
+		DB5BCCBC7E5A5C4BD8C5CE828A93F983 /* STTwitterHTML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STTwitterHTML.h; path = STTwitter/STTwitterHTML.h; sourceTree = "<group>"; };
+		DE821BEA6E4DD4D691E6C4060BCA151A /* STTwitterRequestProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STTwitterRequestProtocol.h; path = STTwitter/STTwitterRequestProtocol.h; sourceTree = "<group>"; };
+		DFB9E67313416C38C820EC1256BC6466 /* STTwitterAPI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STTwitterAPI.m; path = STTwitter/STTwitterAPI.m; sourceTree = "<group>"; };
+		E324EB5CDF69295F39F90F90D7EFC83D /* libPods-LBTA-5-twitter-client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-LBTA-5-twitter-client.a"; path = "libPods-LBTA-5-twitter-client.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3697CF7F3C8319A315CECC9856B7E5D /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Twitter.framework; sourceTree = DEVELOPER_DIR; };
+		E740FC75636F503DF2C92B865BE29F20 /* STTwitterOS.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STTwitterOS.m; path = STTwitter/STTwitterOS.m; sourceTree = "<group>"; };
+		FBF1D52E48A00FAFEE84E87DF5C72FD0 /* BAVPlistNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BAVPlistNode.m; path = STTwitter/Vendor/BAVPlistNode.m; sourceTree = "<group>"; };
+		FE32ABDE2EC88F20FBCBE85E1EEECB60 /* STTwitterAppOnly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STTwitterAppOnly.m; path = STTwitter/STTwitterAppOnly.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		83CB6FAE399BEEA832EDDD94FA5F45AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84217C1B7FD9F21AFE925225DDD7B2D8 /* Accounts.framework in Frameworks */,
+				B28DFEC175617CFB28AE2640C3A8CB59 /* CoreGraphics.framework in Frameworks */,
+				A13BD140E83345B6B5B7A66BC2470727 /* Foundation.framework in Frameworks */,
+				736B2E39B2D7ABA113F252D7A22483FF /* QuartzCore.framework in Frameworks */,
+				274787547A29F928260FF54942FEAD40 /* Twitter.framework in Frameworks */,
+				D13B62537C730A1883BFE5CB0BC1E90A /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAE1193E883E0065BDD019D790646A52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C437BEAE0D2B9415652418C858DFA08B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F75DF6C7C5F002280EC53F48E80B587 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				558374619D7FC2A3890D03415581B79C /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F3E30AE7D8F2AB0AA2EE709B64B0D12 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3133BCA5F4899668DFB746002EBE3DFF /* STTwitter.xcconfig */,
+				5C61B6385A82730AEEE82255960888C4 /* STTwitter-dummy.m */,
+				B19021E15ED03995D990A74269D7A463 /* STTwitter-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/STTwitter";
+			sourceTree = "<group>";
+		};
+		558374619D7FC2A3890D03415581B79C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2A56298381E1785592514C3E42F48503 /* Accounts.framework */,
+				6F393737B35317F9E4042BBB76D9A509 /* CoreGraphics.framework */,
+				BC4718476BD04FBF19A49F3242FEE426 /* Foundation.framework */,
+				3D58C7F76492A3C3F09F14FC4ED85B77 /* QuartzCore.framework */,
+				E3697CF7F3C8319A315CECC9856B7E5D /* Twitter.framework */,
+				21B40402AC8D5CC7E33B4B29C4D08AF2 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				0F75DF6C7C5F002280EC53F48E80B587 /* Frameworks */,
+				E9F2194FF21AAD6BDA6C0485E6E30190 /* Pods */,
+				D74D845FEDEBAB29F10824F0B918EEEC /* Products */,
+				A03CF87BEE3686F55193C8C3CDDE17FC /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A03CF87BEE3686F55193C8C3CDDE17FC /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BC896CA59F837421CA3E4E23D34E8D85 /* Pods-LBTA-5-twitter-client */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		BC896CA59F837421CA3E4E23D34E8D85 /* Pods-LBTA-5-twitter-client */ = {
+			isa = PBXGroup;
+			children = (
+				2BF9B6BEBA7643EB4C4281D4ABF95C69 /* Pods-LBTA-5-twitter-client-acknowledgements.markdown */,
+				D61EFA4D6E4BA841FEE9CC7826536750 /* Pods-LBTA-5-twitter-client-acknowledgements.plist */,
+				9AF36D47EB86BA8739E2BE8F50727958 /* Pods-LBTA-5-twitter-client-dummy.m */,
+				AD23602F488629E484A8DE56DCB73624 /* Pods-LBTA-5-twitter-client-frameworks.sh */,
+				1BE942E87D440A790F0C861FA52EF253 /* Pods-LBTA-5-twitter-client-resources.sh */,
+				4CBC34EC027348D34AB88B0E9881D53C /* Pods-LBTA-5-twitter-client.debug.xcconfig */,
+				696846C0B5DDDE2CC4C38B1EA196C67A /* Pods-LBTA-5-twitter-client.release.xcconfig */,
+			);
+			name = "Pods-LBTA-5-twitter-client";
+			path = "Target Support Files/Pods-LBTA-5-twitter-client";
+			sourceTree = "<group>";
+		};
+		D7283BDB506AF193012921F7369F0F03 /* STTwitter */ = {
+			isa = PBXGroup;
+			children = (
+				A01F754C69F7B1354D085689B85E6114 /* BAVPlistNode.h */,
+				FBF1D52E48A00FAFEE84E87DF5C72FD0 /* BAVPlistNode.m */,
+				C2A4338C5F488579E05D5CFF00DA752D /* JSONSyntaxHighlight.h */,
+				933A48D80BBFCE26DC1D127F5A404F61 /* JSONSyntaxHighlight.m */,
+				561DBA231D72E5509488D1B8BDAA5FE0 /* NSDateFormatter+STTwitter.h */,
+				580D7E49CC1E95047BB39624BEF4FCB8 /* NSDateFormatter+STTwitter.m */,
+				982A7824E260E966E9F99F460F9DA97E /* NSError+STTwitter.h */,
+				983A55115DEA498BF2DE56795EA3927D /* NSError+STTwitter.m */,
+				CEA230353AD69850A6B9606F1C534B42 /* NSString+STTwitter.h */,
+				C0B62323B268E9F08ABBEC41474B57D5 /* NSString+STTwitter.m */,
+				2021DDE01682B811CB7FBCAB4F921E8C /* STHTTPRequest.h */,
+				B38CB0EED1C483F7500497F31623A0C0 /* STHTTPRequest.m */,
+				8012AFB8C4D96066ADDF8F3663C4515B /* STHTTPRequest+STTwitter.h */,
+				7971FB630301FD9AB9AC7614817B5166 /* STHTTPRequest+STTwitter.m */,
+				C19FED4D5313C4269E963A7704145FA6 /* STTwitter.h */,
+				45FC38473A5FB1CD818794FA1D96A935 /* STTwitterAPI.h */,
+				DFB9E67313416C38C820EC1256BC6466 /* STTwitterAPI.m */,
+				8F2FC33C86D41B452B068F08D1517B4A /* STTwitterAppOnly.h */,
+				FE32ABDE2EC88F20FBCBE85E1EEECB60 /* STTwitterAppOnly.m */,
+				DB5BCCBC7E5A5C4BD8C5CE828A93F983 /* STTwitterHTML.h */,
+				740A1C3C0C893088CDE7257D68703F5E /* STTwitterHTML.m */,
+				21D545DFFB489F18CCFC7C1E893022BA /* STTwitterOAuth.h */,
+				0B6E8CAC1569A6CF4E33D2739A45B697 /* STTwitterOAuth.m */,
+				A3303B4F5ECF713D22C5545DB4AA9C71 /* STTwitterOS.h */,
+				E740FC75636F503DF2C92B865BE29F20 /* STTwitterOS.m */,
+				C1D32082D872DC133A754761BF4AAFA1 /* STTwitterOSRequest.h */,
+				79C785FD0915099FCD0BC9654DC028C8 /* STTwitterOSRequest.m */,
+				B712C5C41513CDC1D5C9180FB3624FB8 /* STTwitterProtocol.h */,
+				DE821BEA6E4DD4D691E6C4060BCA151A /* STTwitterRequestProtocol.h */,
+				2969BF3C449EFD8F169C0EB94E7E724F /* STTwitterStreamParser.h */,
+				7C61CAACF1DC240D3C4F474C8841AF16 /* STTwitterStreamParser.m */,
+				2F3E30AE7D8F2AB0AA2EE709B64B0D12 /* Support Files */,
+			);
+			name = STTwitter;
+			path = STTwitter;
+			sourceTree = "<group>";
+		};
+		D74D845FEDEBAB29F10824F0B918EEEC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E324EB5CDF69295F39F90F90D7EFC83D /* libPods-LBTA-5-twitter-client.a */,
+				45EAE905C172B276EA137704A561984D /* libSTTwitter.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E9F2194FF21AAD6BDA6C0485E6E30190 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D7283BDB506AF193012921F7369F0F03 /* STTwitter */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9BB56D460607326B1096B4D62EC265ED /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B586F6C644D765304F39AB2C82CA4E04 /* BAVPlistNode.h in Headers */,
+				B957E30B2D396388FE8BC9ECEE91A0AB /* JSONSyntaxHighlight.h in Headers */,
+				A445ADE94E51AD958100FE5B0044AA75 /* NSDateFormatter+STTwitter.h in Headers */,
+				769EE355D3B6393E63C9AFAA360AC90A /* NSError+STTwitter.h in Headers */,
+				3C70DFD70AF14A30DDB59D111587F22F /* NSString+STTwitter.h in Headers */,
+				B5DEE31DE72CBBF7132EA9C2F85EBDB3 /* STHTTPRequest+STTwitter.h in Headers */,
+				2D379B7D7BDD9E4C7297736387E1BFFC /* STHTTPRequest.h in Headers */,
+				31800B732AEA90ADF941426968C2DCF3 /* STTwitter.h in Headers */,
+				8C8AC2DBDB78199F0402E64EAECE093A /* STTwitterAPI.h in Headers */,
+				1C2C035B9BB216B6D3E89A43E845F64F /* STTwitterAppOnly.h in Headers */,
+				C096FF09284FE29093DBC98F2CB98E40 /* STTwitterHTML.h in Headers */,
+				584CA7678B4ADD688C8A2B53754138F9 /* STTwitterOAuth.h in Headers */,
+				8C23DF08D49CC808FF34ABC941C3DE16 /* STTwitterOS.h in Headers */,
+				291DDDA6B364B857F929707424EFDD57 /* STTwitterOSRequest.h in Headers */,
+				47BCA8A1D881CABB3B403A5A6DA346C6 /* STTwitterProtocol.h in Headers */,
+				6FED096852110BDD8ECFDC3988DDDDE6 /* STTwitterRequestProtocol.h in Headers */,
+				FE8B65375637BF1D521664C9E60DC79E /* STTwitterStreamParser.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7E212E4A98649ED57C25BEFDA9901CBC /* Pods-LBTA-5-twitter-client */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4468C0EB820E817FC99E7DF33E3CE04 /* Build configuration list for PBXNativeTarget "Pods-LBTA-5-twitter-client" */;
+			buildPhases = (
+				493703AB3DC72C5D452CCC4B739F8FBE /* Sources */,
+				DAE1193E883E0065BDD019D790646A52 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				179BEADAF4AB574F7511124F79662099 /* PBXTargetDependency */,
+			);
+			name = "Pods-LBTA-5-twitter-client";
+			productName = "Pods-LBTA-5-twitter-client";
+			productReference = E324EB5CDF69295F39F90F90D7EFC83D /* libPods-LBTA-5-twitter-client.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9566C969C72ED23F029AD15B0B3EA819 /* STTwitter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB4745EBD4FFE6B2CB677D7505F270FB /* Build configuration list for PBXNativeTarget "STTwitter" */;
+			buildPhases = (
+				486976D4DD30953F201CBB828065F033 /* Sources */,
+				83CB6FAE399BEEA832EDDD94FA5F45AE /* Frameworks */,
+				9BB56D460607326B1096B4D62EC265ED /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = STTwitter;
+			productName = STTwitter;
+			productReference = 45EAE905C172B276EA137704A561984D /* libSTTwitter.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = D74D845FEDEBAB29F10824F0B918EEEC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7E212E4A98649ED57C25BEFDA9901CBC /* Pods-LBTA-5-twitter-client */,
+				9566C969C72ED23F029AD15B0B3EA819 /* STTwitter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		486976D4DD30953F201CBB828065F033 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ECECBE7823D6917F49C2BCA53534B9A /* BAVPlistNode.m in Sources */,
+				2084A3FE273445CEC6CE97C24F031F10 /* JSONSyntaxHighlight.m in Sources */,
+				A3AB32AF14AA3AAF0EC61F9D9AFA4439 /* NSDateFormatter+STTwitter.m in Sources */,
+				16D8146ED3977803949D94328308B56B /* NSError+STTwitter.m in Sources */,
+				A7CF81D4ABC25E9147EC37DFCBC453D8 /* NSString+STTwitter.m in Sources */,
+				26642465EE24D3130E44128F1ABCCA8F /* STHTTPRequest+STTwitter.m in Sources */,
+				034AA9517458BF06BF812E93381DD456 /* STHTTPRequest.m in Sources */,
+				8F34C7D7B7F44A48746CD98D5397F8BD /* STTwitter-dummy.m in Sources */,
+				9D9C8DE774AE1903D4C62555C16A4462 /* STTwitterAPI.m in Sources */,
+				CC5AD1932ADFE9D3EC69245203D12BAB /* STTwitterAppOnly.m in Sources */,
+				A5FCBE22CA796F08D8F807F8C59E6372 /* STTwitterHTML.m in Sources */,
+				27BBFB04223E1362C0C0063BFB487B97 /* STTwitterOAuth.m in Sources */,
+				2E04A6A34A0A1A94E67F867639172576 /* STTwitterOS.m in Sources */,
+				A46319A284152A3FBC17BDB99DB965D9 /* STTwitterOSRequest.m in Sources */,
+				42BA0940B039C7803CEF8C5C5BD02783 /* STTwitterStreamParser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		493703AB3DC72C5D452CCC4B739F8FBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA493BD97FD62BA3B37A04C134C420F4 /* Pods-LBTA-5-twitter-client-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		179BEADAF4AB574F7511124F79662099 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = STTwitter;
+			target = 9566C969C72ED23F029AD15B0B3EA819 /* STTwitter */;
+			targetProxy = AAE6371E769FD95A1FE6B2A9FF9103CC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0184253F2C3C8DAF580432FB3E7DC987 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CBC34EC027348D34AB88B0E9881D53C /* Pods-LBTA-5-twitter-client.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		042B361522DD23BD6D514A22EF714327 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3133BCA5F4899668DFB746002EBE3DFF /* STTwitter.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/STTwitter/STTwitter-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		4E14D6D8668038E07AF5FBD6784AF341 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 696846C0B5DDDE2CC4C38B1EA196C67A /* Pods-LBTA-5-twitter-client.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		707B86CFB21B645E37109F39754D4051 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AD4D401FBB801BCE64E1DB387C31FE04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3133BCA5F4899668DFB746002EBE3DFF /* STTwitter.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/STTwitter/STTwitter-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		EF26A3C5B6EDA309192C6025F703DE0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF26A3C5B6EDA309192C6025F703DE0A /* Debug */,
+				707B86CFB21B645E37109F39754D4051 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4468C0EB820E817FC99E7DF33E3CE04 /* Build configuration list for PBXNativeTarget "Pods-LBTA-5-twitter-client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0184253F2C3C8DAF580432FB3E7DC987 /* Debug */,
+				4E14D6D8668038E07AF5FBD6784AF341 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB4745EBD4FFE6B2CB677D7505F270FB /* Build configuration list for PBXNativeTarget "STTwitter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				042B361522DD23BD6D514A22EF714327 /* Debug */,
+				AD4D401FBB801BCE64E1DB387C31FE04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
