@@ -1,0 +1,6 @@
+framework module Pods_LBTA_12_google_login_sdk {
+  umbrella header "Pods-LBTA-12-google-login-sdk-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -16,6 +16,8 @@
 		A322A92F1F62CD0300CEB397 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A322A92E1F62CD0300CEB397 /* Extensions.swift */; };
 		A322A9311F62F0F800CEB397 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A322A9301F62F0F800CEB397 /* CustomTabBarController.swift */; };
 		A322A9331F62F45C00CEB397 /* OtherControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A322A9321F62F45C00CEB397 /* OtherControllers.swift */; };
+		A322A9591F6324BC00CEB397 /* single_post.json in Resources */ = {isa = PBXBuildFile; fileRef = A322A9581F6324BC00CEB397 /* single_post.json */; };
+		A322A95B1F63259400CEB397 /* all_posts.json in Resources */ = {isa = PBXBuildFile; fileRef = A322A95A1F63259400CEB397 /* all_posts.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		A322A92E1F62CD0300CEB397 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A322A9301F62F0F800CEB397 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		A322A9321F62F45C00CEB397 /* OtherControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherControllers.swift; sourceTree = "<group>"; };
+		A322A9581F6324BC00CEB397 /* single_post.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = single_post.json; sourceTree = "<group>"; };
+		A322A95A1F63259400CEB397 /* all_posts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = all_posts.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 				A322A9011F61E4A700CEB397 /* Assets.xcassets */,
 				A322A9031F61E4A700CEB397 /* LaunchScreen.storyboard */,
 				A322A9061F61E4A700CEB397 /* Info.plist */,
+				A322A9581F6324BC00CEB397 /* single_post.json */,
+				A322A95A1F63259400CEB397 /* all_posts.json */,
 			);
 			path = "LBTA-8-facebook-news-feed";
 			sourceTree = "<group>";
@@ -138,6 +144,8 @@
 			files = (
 				A322A9051F61E4A700CEB397 /* LaunchScreen.storyboard in Resources */,
 				A322A9021F61E4A700CEB397 /* Assets.xcassets in Resources */,
+				A322A9591F6324BC00CEB397 /* single_post.json in Resources */,
+				A322A95B1F63259400CEB397 /* all_posts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

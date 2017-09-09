@@ -16,6 +16,40 @@ class FeedController: UICollectionViewController, UICollectionViewDelegateFlowLa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        let samplePost = Post()
+//        samplePost.perform(Selector("setName:"), with: "myname")
+//        print(samplePost.name)
+        
+        if let path = Bundle.main.path(forResource: "all_posts", ofType: "json") {
+            let url = URL(fileURLWithPath: path)
+            do {
+                let data = try Data(contentsOf: url, options: .mappedIfSafe)
+                // Make sure you are using the correct method next time. Took 30 mins to figure out.
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
+                
+//                if let postDictionary = json?["posts"] as? [String: Any] {
+////                    print(postDictionary)
+//                    let post = Post()
+//                    // Must inherit from NSObject to be able to do this. Ints must be NSNumber in order for this to work.
+//                    post.setValuesForKeys(postDictionary)
+//                    posts.postsList = [post]
+//                }
+                
+                if let postsArray = json?["posts"] as? [[String: Any]] {
+                    for postDictionary in postsArray {
+                        let post = Post()
+                        post.setValuesForKeys(postDictionary)
+                        posts.postsList.append(post)
+                    }
+                }
+                
+
+            } catch let error {
+                print(error)
+            }
+        
+        }
+        
         // 500 MB.
         let memoryCapacity = 500 * 1024 * 1024
         let diskCapacity = 500 * 1024 * 1024
@@ -56,7 +90,7 @@ class FeedController: UICollectionViewController, UICollectionViewDelegateFlowLa
             // NSString has a method on it called boundingRectWithSize, and this will estimate our text size for us.
             let rect = NSString(string: statusText).boundingRect(with: CGSize(width: view.frame.width, height: 1000), options: NSStringDrawingOptions.usesFontLeading.union(NSStringDrawingOptions.usesLineFragmentOrigin), attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
             let knownHeight: CGFloat = 8 + 44 + 4 + 4 + 200 + 8 + 24 + 8 + 44
-            // The last 24 is because it needed some extra space to show properly.
+            // The last 24 is because it needed some extra space to show properly. Still missing the bottom of the Trump sentence.
             return CGSize(width: view.frame.width, height: rect.height + knownHeight + 24)
         }
         return CGSize(width: view.frame.width, height: 500)

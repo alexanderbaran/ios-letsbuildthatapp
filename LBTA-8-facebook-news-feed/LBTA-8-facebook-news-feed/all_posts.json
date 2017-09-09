@@ -1,0 +1,52 @@
+{
+    "posts": [
+        {
+              "name": "Mark Zuckerberg",
+              "profileImageName": "zuckprofile",
+              "statusText": "By giving people the power to share, we're making the world more transparent.",
+              "statusImageName": "zuckdog",
+              "numLikes": 400,
+              "numComments": 123,
+              "statusImageUrl": "https://media.wired.com/photos/593222b926780e6c04d2a195/master/w_2400,c_limit/Zuck-TA-AP_17145748750763.jpg"
+        },
+        {
+              "name": "Steve Jobs",
+              "profileImageName": "steve_profile",
+              "statusText": "Design is not just what it looks like and feels like. Design is how it works.\n\nBeing the richest man in the cemetery doesn't matter to me. Going to bed at night saying we've done something wonderful, that's what matters to me.\n\nSometimes when you innovate, you make mistakes. It is best to admit them quickly, and get on with improving your other innovations.",
+              "statusImageName": "steve_status",
+              "numLikes": 1000,
+              "numComments": 55,
+              "statusImageUrl": "https://f.ptcdn.info/945/043/000/o9ih6uki2JInER6c3hG-o.jpg"
+        },
+        {
+              "name": "Mahatma Gandhi",
+              "profileImageName": "gandhi_profile",
+              "statusText": "Live as if you were to die tomorrow; learn as if you were to live forever.\n\nThe weak can never forgive. Forgiveness is the attribute of the strong.\n\nHappiness is when what you think, what you say, and what you do are in harmony.",
+              "statusImageName": "gandhi_status",
+              "numLikes": 333,
+              "numComments": 22,
+              "statusImageUrl": "https://i.imgur.com/paLR1Md.jpg"
+        },
+        {
+              "name": "Bill Gates",
+              "profileImageName": "bill_gates_profile",
+              "statusText": "Success is a lousy teacher. It seduces smart people into thinking they can't lose.\n\nYour most unhappy customers are your greatest source of learning.\n\nAs we look ahead into the next century, leaders will be those who empower others.",
+              "statusImageUrl": "https://s3-us-west-2.amazonaws.com/letsbuildthatapp/gates_background.jpg"
+        },
+        {
+              "name": "Tim Cook",
+              "profileImageName": "tim_cook_profile",
+              "statusText": "The worst thing in the world that can happen to you if you're an engineer that has given his life to something is for someone to rip it off and put their name on it.",
+              "statusImageUrl": "https://s3-us-west-2.amazonaws.com/letsbuildthatapp/Tim+Cook.png"
+        },
+        {
+              "name": "Donald Trump",
+              "profileImageName": "donald_trump_profile",
+              "statusText": "An ‘extremely credible source’ has called my office and told me that Barack Obama’s birth certificate is a fraud.",
+              "statusImageUrl": "https://s3-us-west-2.amazonaws.com/letsbuildthatapp/trump_background.jpg"
+        }
+    ]
+}
+
+
+
