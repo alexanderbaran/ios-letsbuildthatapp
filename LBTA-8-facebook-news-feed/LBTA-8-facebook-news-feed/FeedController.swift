@@ -88,10 +88,11 @@ class FeedController: UICollectionViewController, UICollectionViewDelegateFlowLa
          you have to account for the height of the image view, it is always varying. The sizes change alot. */
         if let statusText = posts[indexPath.item].statusText {
             // NSString has a method on it called boundingRectWithSize, and this will estimate our text size for us.
-            let rect = NSString(string: statusText).boundingRect(with: CGSize(width: view.frame.width, height: 1000), options: NSStringDrawingOptions.usesFontLeading.union(NSStringDrawingOptions.usesLineFragmentOrigin), attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
+            // statusTextView has 4 padding from left and 4 padding from right, need to take this into account too. Also added 10 more because had to for Trump post, fml.
+            let rect = NSString(string: statusText).boundingRect(with: CGSize(width: view.frame.width - 4 - 4 - 10, height: 1000), options: NSStringDrawingOptions.usesFontLeading.union(NSStringDrawingOptions.usesLineFragmentOrigin), attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
             let knownHeight: CGFloat = 8 + 44 + 4 + 4 + 200 + 8 + 24 + 8 + 44
-            // The last 24 is because it needed some extra space to show properly. Still missing the bottom of the Trump sentence.
-            return CGSize(width: view.frame.width, height: rect.height + knownHeight + 24)
+            // The last 30 is because it needed some extra space to show properly. Still missing the bottom of the Trump sentence.
+            return CGSize(width: view.frame.width, height: rect.height + knownHeight + 30)
         }
         return CGSize(width: view.frame.width, height: 500)
     }
