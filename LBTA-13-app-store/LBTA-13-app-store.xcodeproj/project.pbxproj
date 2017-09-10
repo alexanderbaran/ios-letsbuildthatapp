@@ -18,6 +18,8 @@
 		A37B728F1F64670B008B92B8 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B728E1F64670B008B92B8 /* Header.swift */; };
 		A37B72911F647773008B92B8 /* AppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B72901F647773008B92B8 /* AppDetailController.swift */; };
 		A37B72931F648898008B92B8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B72921F648898008B92B8 /* Extensions.swift */; };
+		A37B72951F6534D1008B92B8 /* ScreenshotsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B72941F6534D1008B92B8 /* ScreenshotsCell.swift */; };
+		A37B72971F65453A008B92B8 /* AppDetailDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B72961F65453A008B92B8 /* AppDetailDescriptionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		A37B728E1F64670B008B92B8 /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		A37B72901F647773008B92B8 /* AppDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDetailController.swift; sourceTree = "<group>"; };
 		A37B72921F648898008B92B8 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A37B72941F6534D1008B92B8 /* ScreenshotsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotsCell.swift; sourceTree = "<group>"; };
+		A37B72961F65453A008B92B8 /* AppDetailDescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDetailDescriptionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 				A37B72761F63FF9B008B92B8 /* FeaturedAppsController.swift */,
 				A37B728A1F64326B008B92B8 /* Models.swift */,
 				A37B72901F647773008B92B8 /* AppDetailController.swift */,
+				A37B72941F6534D1008B92B8 /* ScreenshotsCell.swift */,
+				A37B72961F65453A008B92B8 /* AppDetailDescriptionCell.swift */,
 				A37B72861F6417D1008B92B8 /* CategoryCell.swift */,
 				A37B728E1F64670B008B92B8 /* Header.swift */,
 				A37B728C1F64544C008B92B8 /* LargeCategoryCell.swift */,
@@ -161,7 +167,9 @@
 				A37B728F1F64670B008B92B8 /* Header.swift in Sources */,
 				A37B72911F647773008B92B8 /* AppDetailController.swift in Sources */,
 				A37B72871F6417D1008B92B8 /* CategoryCell.swift in Sources */,
+				A37B72951F6534D1008B92B8 /* ScreenshotsCell.swift in Sources */,
 				A37B728B1F64326B008B92B8 /* Models.swift in Sources */,
+				A37B72971F65453A008B92B8 /* AppDetailDescriptionCell.swift in Sources */,
 				A37B728D1F64544C008B92B8 /* LargeCategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

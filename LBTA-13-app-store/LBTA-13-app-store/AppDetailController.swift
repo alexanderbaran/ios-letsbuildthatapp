@@ -9,12 +9,50 @@
 import UIKit
 
 let appDetailHeaderId = "appDetailHeaderId"
+let screenshotsCellId = "screenshotsCellId"
+let appDetailDescriptionCellId = "appDetailDescriptionCellId"
 
 class AppDetailController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var app: App? {
         didSet {
-//            navigationItem.title = app?.name
+            
+            /* If we put a breakpoint at self.app = appDetail, it keeps calling itself and that is because we are cyclicly, constantly calling
+             this setter by setting app variable which calls this didSet and then it continuously calls itself firing off this api service
+             infinitely in an infite loop. We can fix it by adding something like below. */
+            if app?.screenshots != nil {
+                return
+            }
+            
+            guard let id = app?.id else {
+                print("app?.id failed")
+                return
+            }
+            
+            let urlString = "https://api.letsbuildthatapp.com/appstore/appdetail?id=\(id)"
+            let url = URL(string: urlString)!
+            let task = URLSession.shared.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: Any]
+                    let appDetail = App()
+                    appDetail.setValuesForKeys(json)
+                    
+                    self.app = appDetail
+
+                    DispatchQueue.main.async {
+                        self.collectionView?.reloadData()
+                    }
+                } catch let error {
+                    print(error)
+                }
+            }
+            
+            task.resume()
+            
         }
     }
     
@@ -23,6 +61,8 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
         
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(AppDetailHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: appDetailHeaderId)
+        collectionView?.register(ScreenshotsCell.self, forCellWithReuseIdentifier: screenshotsCellId)
+        collectionView?.register(AppDetailDescriptionCell.self, forCellWithReuseIdentifier: appDetailDescriptionCellId)
         
         collectionView?.alwaysBounceVertical = true
     }
@@ -34,6 +74,55 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 170)
+    }
+    
+    private func descriptionAttributedText() -> NSAttributedString {
+        let attributedText = NSMutableAttributedString(string: "Description\n", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)])
+        
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 10
+        
+        let range = NSMakeRange(0, attributedText.string.characters.count)
+        attributedText.addAttribute(NSParagraphStyleAttributeName, value: style, range: range)
+        
+        if let desc = app?.desc {
+            attributedText.append(NSAttributedString(string: desc, attributes: [
+                NSFontAttributeName: UIFont.systemFont(ofSize: 11),
+                NSForegroundColorAttributeName: UIColor.darkGray
+            ]))
+        }
+        return attributedText
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if indexPath.item == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: appDetailDescriptionCellId, for: indexPath) as! AppDetailDescriptionCell
+            cell.textView.attributedText = descriptionAttributedText()
+            return cell
+        }
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: screenshotsCellId, for: indexPath) as! ScreenshotsCell
+        cell.app = app
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if indexPath.item == 1 {
+            // Width of the text is view.frame.widt minus the text padding from the contrainsts, 8 on each side. Height can just be something large like 1000.
+            let dummySize = CGSize(width: view.frame.width - 8 - 8, height: 1000)
+            let options = NSStringDrawingOptions.usesFontLeading.union(NSStringDrawingOptions.usesLineFragmentOrigin)
+            let rect = descriptionAttributedText().boundingRect(with: dummySize, options: options, context: nil)
+            // Most of the time this calculation is not going to be perfect. Text is sometimes getting cut at the bottom, so just add something like 30 pixels.
+            return CGSize(width: view.frame.width, height: rect.height + 30)
+        }
+        
         return CGSize(width: view.frame.width, height: 170)
     }
 
