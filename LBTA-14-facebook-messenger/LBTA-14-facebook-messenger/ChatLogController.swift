@@ -162,6 +162,13 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: .UIKeyboardWillHide, object: nil)
+        
+        /* This does not really produce the exact result you want, the keyboard is slided down but the text input field is still there and does not follow along. */
+        // https://stackoverflow.com/questions/43469638/how-to-show-hide-keyboard-smoothly-on-drag-in-ios-swift-3
+//        collectionView?.keyboardDismissMode = .interactive
+        // This worked better, it also animated the text input field.
+        // https://stackoverflow.com/questions/30042352/dismiss-keyboard-with-swipe-gesture
+        collectionView?.keyboardDismissMode = .onDrag
     }
     
     func handleKeyboardNotification(notification: Notification) {
