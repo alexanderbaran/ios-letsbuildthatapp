@@ -113,7 +113,7 @@ extension FriendsController {
         _ = FriendsController.createMessageWithText(text: "Are you interested in buying an Apple device? We have a wide variety of Apple devices that will suit your needs. Please make your purchase with us.", friend: steve, minutesAgo: 1, context: context)
         
         // Response message.
-        _ = FriendsController.createMessageWithText(text: "Yes, totally looking to buy and iPhone 7.", friend: steve, minutesAgo: 1, context: context, isSender: true)
+        _ = FriendsController.createMessageWithText(text: "Yes, totally looking to buy an iPhone 7.", friend: steve, minutesAgo: 1, context: context, isSender: true)
         
         _ = FriendsController.createMessageWithText(text: "Totally understand that you want the new iPhone 7, but you'll have to wait until September for the new release. Sorry but thats just how Apple likes to do things.", friend: steve, minutesAgo: 1, context: context)
         
