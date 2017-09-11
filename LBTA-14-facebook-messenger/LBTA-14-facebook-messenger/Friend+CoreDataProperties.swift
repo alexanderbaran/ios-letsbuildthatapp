@@ -2,7 +2,7 @@
 //  Friend+CoreDataProperties.swift
 //  LBTA-14-facebook-messenger
 //
-//  Created by Alexander Baran on 10/09/2017.
+//  Created by Alexander Baran on 11/09/2017.
 //  Copyright © 2017 Alexander Baran. All rights reserved.
 //
 
@@ -19,6 +19,7 @@ extension Friend {
     @NSManaged public var name: String?
     @NSManaged public var profileImageName: String?
     @NSManaged public var messages: NSSet?
+    @NSManaged public var lastMessage: Message?
 
 }
 

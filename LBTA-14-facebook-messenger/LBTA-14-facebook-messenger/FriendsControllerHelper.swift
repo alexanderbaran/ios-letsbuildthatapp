@@ -58,16 +58,18 @@ extension FriendsController {
         // https://stackoverflow.com/questions/39200385/managedobjectcontext-in-swift-3
         if let context = delegate?.persistentContainer.viewContext {
             
-//            let mark = Friend()
-            let mark = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
-            mark.name = "Mark Zuckerberg"
-            mark.profileImageName = "zuckprofile"
+////            let mark = Friend()
+//            let mark = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
+//            mark.name = "Mark Zuckerberg"
+//            mark.profileImageName = "zuckprofile"
+
+//            _ = FriendsController.createMessageWithText(text: "Hello, my name is Mark. Nice to meet you...", friend: mark, minutesAgo: 0, context: context)
             
-//            let messageMark = Message()
-            let messageMark = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
-            messageMark.friend = mark
-            messageMark.text = "Hello, my name is Mark. Nice to meet you..."
-            messageMark.date = NSDate()
+////            let messageMark = Message()
+//            let messageMark = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+//            messageMark.friend = mark
+//            messageMark.text = "Hello, my name is Mark. Nice to meet you..."
+//            messageMark.date = NSDate()
             
             createSteveMessagesWithContext(context: context)
             
@@ -99,7 +101,7 @@ extension FriendsController {
 //            messages = [messageMark, messageSteve]
         }
         
-        loadData()
+//        loadData()
     }
     
     private func createSteveMessagesWithContext(context: NSManagedObjectContext) {
@@ -126,55 +128,56 @@ extension FriendsController {
         message.text = text
         message.date = NSDate().addingTimeInterval(-minutesAgo * 60)
         message.isSender = isSender
+        friend.lastMessage = message
         return message
     }
     
-    func loadData() {
-        let delegate = UIApplication.shared.delegate as? AppDelegate
-        if let context = delegate?.persistentContainer.viewContext {
-            
-            guard let friends = fetchFriends() else {
-                print("no friends")
-                return
-            }
-            
-            messages = [Message]()
-            
-            for friend in friends {
-                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Message")
-                fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
-                // Filter by getting only messages from Steve Jobs.
-                fetchRequest.predicate = NSPredicate(format: "friend.name = %@", friend.name!)
-                // We will now only get the last message.
-                fetchRequest.fetchLimit = 1
-                do {
-                    // https://stackoverflow.com/questions/36690691/casting-from-nspersistentstoreresult-to-unrelated-type-entity-always-fails
-//                    messages = try context.fetch(fetchRequest) as? [Message]
-                    let fetchedMessages = try context.fetch(fetchRequest) as? [Message]
-                    messages?.append(contentsOf: fetchedMessages!)
-                } catch let error {
-                    print(error)
-                }
-            }
-            
-            messages = messages?.sorted(by: { (message1: Message, message2: Message) -> Bool in
-                return message1.date!.compare(message2.date! as Date) == .orderedDescending
-            })
-        }
-    }
-    
-    private func fetchFriends() -> [Friend]? {
-        let delegate = UIApplication.shared.delegate as? AppDelegate
-        if let context = delegate?.persistentContainer.viewContext {
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Friend")
-            do {
-                return try context.fetch(request) as? [Friend]
-            } catch let error {
-                print(error)
-            }
-        }
-        return nil
-    }
+//    func loadData() {
+//        let delegate = UIApplication.shared.delegate as? AppDelegate
+//        if let context = delegate?.persistentContainer.viewContext {
+//            
+//            guard let friends = fetchFriends() else {
+//                print("no friends")
+//                return
+//            }
+//            
+//            messages = [Message]()
+//            
+//            for friend in friends {
+//                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Message")
+//                fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+//                // Filter by getting only messages from Steve Jobs.
+//                fetchRequest.predicate = NSPredicate(format: "friend.name = %@", friend.name!)
+//                // We will now only get the last message.
+//                fetchRequest.fetchLimit = 1
+//                do {
+//                    // https://stackoverflow.com/questions/36690691/casting-from-nspersistentstoreresult-to-unrelated-type-entity-always-fails
+////                    messages = try context.fetch(fetchRequest) as? [Message]
+//                    let fetchedMessages = try context.fetch(fetchRequest) as? [Message]
+//                    messages?.append(contentsOf: fetchedMessages!)
+//                } catch let error {
+//                    print(error)
+//                }
+//            }
+//            
+//            messages = messages?.sorted(by: { (message1: Message, message2: Message) -> Bool in
+//                return message1.date!.compare(message2.date! as Date) == .orderedDescending
+//            })
+//        }
+//    }
+//    
+//    private func fetchFriends() -> [Friend]? {
+//        let delegate = UIApplication.shared.delegate as? AppDelegate
+//        if let context = delegate?.persistentContainer.viewContext {
+//            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Friend")
+//            do {
+//                return try context.fetch(request) as? [Friend]
+//            } catch let error {
+//                print(error)
+//            }
+//        }
+//        return nil
+//    }
 }
 
 

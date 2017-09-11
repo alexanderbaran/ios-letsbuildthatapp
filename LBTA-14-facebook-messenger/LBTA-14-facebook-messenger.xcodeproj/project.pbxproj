@@ -19,10 +19,10 @@
 		A37B73061F658BDD008B92B8 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73051F658BDD008B92B8 /* ChatLogController.swift */; };
 		A37B73081F658DDE008B92B8 /* ChatLogMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73071F658DDE008B92B8 /* ChatLogMessageCell.swift */; };
 		A37B730A1F659350008B92B8 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73091F659350008B92B8 /* CustomTabBarController.swift */; };
-		A37B73171F65AA62008B92B8 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73131F65AA62008B92B8 /* Friend.swift */; };
-		A37B73181F65AA62008B92B8 /* Friend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73141F65AA62008B92B8 /* Friend+CoreDataProperties.swift */; };
-		A37B73191F65AA62008B92B8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73151F65AA62008B92B8 /* Message.swift */; };
-		A37B731A1F65AA62008B92B8 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73161F65AA62008B92B8 /* Message+CoreDataProperties.swift */; };
+		A37B731F1F668EAB008B92B8 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B731B1F668EAB008B92B8 /* Friend.swift */; };
+		A37B73201F668EAB008B92B8 /* Friend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B731C1F668EAB008B92B8 /* Friend+CoreDataProperties.swift */; };
+		A37B73211F668EAB008B92B8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B731D1F668EAB008B92B8 /* Message.swift */; };
+		A37B73221F668EAB008B92B8 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B731E1F668EAB008B92B8 /* Message+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,10 +40,10 @@
 		A37B73051F658BDD008B92B8 /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
 		A37B73071F658DDE008B92B8 /* ChatLogMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogMessageCell.swift; sourceTree = "<group>"; };
 		A37B73091F659350008B92B8 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
-		A37B73131F65AA62008B92B8 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
-		A37B73141F65AA62008B92B8 /* Friend+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A37B73151F65AA62008B92B8 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		A37B73161F65AA62008B92B8 /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A37B731B1F668EAB008B92B8 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		A37B731C1F668EAB008B92B8 /* Friend+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A37B731D1F668EAB008B92B8 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		A37B731E1F668EAB008B92B8 /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +82,10 @@
 				A37B72DD1F65574B008B92B8 /* MessageCell.swift */,
 				A37B72DB1F6556DE008B92B8 /* BaseCell.swift */,
 				A37B72D91F65558A008B92B8 /* Extensions.swift */,
-				A37B73161F65AA62008B92B8 /* Message+CoreDataProperties.swift */,
-				A37B73151F65AA62008B92B8 /* Message.swift */,
-				A37B73141F65AA62008B92B8 /* Friend+CoreDataProperties.swift */,
-				A37B73131F65AA62008B92B8 /* Friend.swift */,
+				A37B731E1F668EAB008B92B8 /* Message+CoreDataProperties.swift */,
+				A37B731D1F668EAB008B92B8 /* Message.swift */,
+				A37B731C1F668EAB008B92B8 /* Friend+CoreDataProperties.swift */,
+				A37B731B1F668EAB008B92B8 /* Friend.swift */,
 				A37B73051F658BDD008B92B8 /* ChatLogController.swift */,
 				A37B73071F658DDE008B92B8 /* ChatLogMessageCell.swift */,
 				A37B73091F659350008B92B8 /* CustomTabBarController.swift */,
@@ -172,13 +172,13 @@
 				A37B73061F658BDD008B92B8 /* ChatLogController.swift in Sources */,
 				A37B72C71F65557B008B92B8 /* FriendsController.swift in Sources */,
 				A37B72DE1F65574B008B92B8 /* MessageCell.swift in Sources */,
-				A37B73171F65AA62008B92B8 /* Friend.swift in Sources */,
-				A37B731A1F65AA62008B92B8 /* Message+CoreDataProperties.swift in Sources */,
+				A37B731F1F668EAB008B92B8 /* Friend.swift in Sources */,
+				A37B73221F668EAB008B92B8 /* Message+CoreDataProperties.swift in Sources */,
 				A37B72CD1F65557B008B92B8 /* LBTA_14_facebook_messenger.xcdatamodeld in Sources */,
-				A37B73181F65AA62008B92B8 /* Friend+CoreDataProperties.swift in Sources */,
+				A37B73201F668EAB008B92B8 /* Friend+CoreDataProperties.swift in Sources */,
 				A37B72C51F65557B008B92B8 /* AppDelegate.swift in Sources */,
 				A37B72DC1F6556DE008B92B8 /* BaseCell.swift in Sources */,
-				A37B73191F65AA62008B92B8 /* Message.swift in Sources */,
+				A37B73211F668EAB008B92B8 /* Message.swift in Sources */,
 				A37B730A1F659350008B92B8 /* CustomTabBarController.swift in Sources */,
 				A37B73081F658DDE008B92B8 /* ChatLogMessageCell.swift in Sources */,
 				A37B72E41F656504008B92B8 /* FriendsControllerHelper.swift in Sources */,

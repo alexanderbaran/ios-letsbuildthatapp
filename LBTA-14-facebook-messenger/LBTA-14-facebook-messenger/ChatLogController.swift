@@ -93,7 +93,7 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
         
     }
     
-    // Must be lazy var because of self.friend!.name!
+    // Must be lazy var because of self.friend!.name! and self.
     lazy var fetchedResultsController: NSFetchedResultsController<Message> = {
         let fetchRequest = NSFetchRequest<Message>(entityName: "Message")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
