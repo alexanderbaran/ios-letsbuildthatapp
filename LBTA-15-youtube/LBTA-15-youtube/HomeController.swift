@@ -12,29 +12,76 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 
     private let homeCellId = "homeCellId"
     
-    var videos: [Video] = {
-        
-        var kanyeChannel = Channel()
-        kanyeChannel.name = "KanyeIsTheBestChannel"
-        kanyeChannel.profileImageName = "kanye_profile"
-        
-        var blankSpaceVideo = Video()
-        blankSpaceVideo.title = "Taylor Swift - Blank Space"
-        blankSpaceVideo.thumbnailImageName = "taylor_swift_blank_space"
-        blankSpaceVideo.channel = kanyeChannel
-        blankSpaceVideo.numberOfViews = 132423112
-        
-        var badBloodVideo = Video()
-        badBloodVideo.title = "Taylor Swift - Bad Blood featuring Kendrick Lamar"
-        badBloodVideo.thumbnailImageName = "taylor_swift_bad_blood"
-        badBloodVideo.channel = kanyeChannel
-        badBloodVideo.numberOfViews = 23432324212
-        
-        return [blankSpaceVideo, badBloodVideo]
-    }()
+//    var videos: [Video] = {
+//        
+//        var kanyeChannel = Channel()
+//        kanyeChannel.name = "KanyeIsTheBestChannel"
+//        kanyeChannel.profileImageName = "kanye_profile"
+//        
+//        var blankSpaceVideo = Video()
+//        blankSpaceVideo.title = "Taylor Swift - Blank Space"
+//        blankSpaceVideo.thumbnailImageName = "taylor_swift_blank_space"
+//        blankSpaceVideo.channel = kanyeChannel
+//        blankSpaceVideo.numberOfViews = 132423112
+//        
+//        var badBloodVideo = Video()
+//        badBloodVideo.title = "Taylor Swift - Bad Blood featuring Kendrick Lamar"
+//        badBloodVideo.thumbnailImageName = "taylor_swift_bad_blood"
+//        badBloodVideo.channel = kanyeChannel
+//        badBloodVideo.numberOfViews = 23432324212
+//        
+//        return [blankSpaceVideo, badBloodVideo]
+//    }()
+    
+    var videos: [Video]?
+    
+    func fetchVideos() {
+        let url = URL(string: "https://s3-us-west-2.amazonaws.com/youtubeassets/home.json")!
+        let task = URLSession.shared.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
+            if error != nil {
+                print(error!)
+                return
+            }
+//            let str = String(data: data!, encoding: String.Encoding.utf8)
+//            print(str)
+            // https://stackoverflow.com/questions/40057854/what-do-jsonserialization-options-do-and-how-do-they-change-jsonresult
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
+                self.videos = [Video]()
+                for dictionary in json as! [[String: Any]] {
+//                    print(dictionary["title"])
+                    
+                    guard let channelDictionary = dictionary["channel"] as? [String: Any] else {
+                        print("channel not a dictionary")
+                        break
+                    }
+                    
+                    let channel = Channel()
+                    channel.name = channelDictionary["name"] as? String
+                    channel.profileImageName = channelDictionary["profile_image_name"] as? String
+                    
+                    let video = Video()
+                    video.title = dictionary["title"] as? String
+                    video.thumbnailImageName = dictionary["thumbnail_image_name"] as? String
+                    video.channel = channel
+                    
+                    self.videos?.append(video)
+                }
+            } catch let error {
+                print(error)
+            }
+            // The tutorial forgot this and it crashed for him.
+            DispatchQueue.main.async {
+                self.collectionView?.reloadData()
+            }
+        }
+        task.resume()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchVideos()
         
         // Let this stay for now. I think it is needed when pushing views into navigation controller, the back button will show this title.
         navigationItem.title = "Home"
@@ -85,9 +132,35 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 //        print("search tapped")
     }
     
+    let settingsLauncher = SettingsLauncher()
+    
     func handleMore() {
-        print("more tapped")
+        settingsLauncher.showSettings()
     }
+    
+//    let blackView = UIView()
+//    
+//    func handleMore() {
+////        print("more tapped")
+//        if let window = UIApplication.shared.keyWindow {
+//            blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+//            window.addSubview(blackView)
+//            blackView.frame = window.frame
+//            blackView.alpha = 0
+//            UIView.animate(withDuration: 0.5, animations: { 
+//                self.blackView.alpha = 1
+//            })
+//            // https://stackoverflow.com/questions/35637041/how-does-uibutton-addtarget-self-work
+//            // https://stackoverflow.com/questions/6502843/buttons-target-is-always-self-can-i-set-to-be-another?rq=1
+//            blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
+//        }
+//    }
+//    
+//    func handleDismiss() {
+//        UIView.animate(withDuration: 0.5) { 
+//            self.blackView.alpha = 0
+//        }
+//    }
     
     let menuBar: MenuBar = {
         let mb = MenuBar()
@@ -101,12 +174,17 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videos.count
+//        if let count = videos?.count {
+//            return count
+//        }
+//        return 0
+        // This is also possible.
+        return videos?.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: homeCellId, for: indexPath) as! VideoCell
-        cell.video = videos[indexPath.item]
+        cell.video = videos?[indexPath.item]
         return cell
     }
     

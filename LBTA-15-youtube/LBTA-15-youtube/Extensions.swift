@@ -25,3 +25,29 @@ extension UIView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
     }
 }
+
+//extension UIImageView {
+//    func loadImageUsingUrlString(urlString: String) {
+//        /* When working with collection views and async data, should always cache the image, or else some bugs occur when the internet connection
+//         is slow. Caching the image for scrolling is a good practice anyways as it makes everything seem much smoother and does not waste user
+//         or server bandwith and prevents inconsistencies and bugs when scrolling. */
+//        if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
+//            self.image = imageFromCache
+//            return
+//        }
+////        print("requesting...")
+//        let url = URL(string: urlString)!
+//        let task = URLSession.shared.dataTask(with: url, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
+//            if error != nil {
+//                print(error!)
+//                return
+//            }
+//            DispatchQueue.main.async {
+//                let imageToCache = UIImage(data: data!)
+//                imageCache.setObject(imageToCache!, forKey: urlString as AnyObject)
+//                self.image = imageToCache
+//            }
+//        })
+//        task.resume()
+//    }
+//}

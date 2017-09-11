@@ -13,12 +13,14 @@ class VideoCell: BaseCell {
     var video: Video? {
         didSet {
             titleLabel.text = video?.title
-            if let thumbnailImageName = video?.thumbnailImageName {
-                thumbnailImageView.image = UIImage(named: thumbnailImageName)
-            }
-            if let profileImageName = video?.channel?.profileImageName {
-                userProfileImageView.image = UIImage(named: profileImageName)
-            }
+//            if let thumbnailImageName = video?.thumbnailImageName {
+//                thumbnailImageView.image = UIImage(named: thumbnailImageName)
+//            }
+            setupThumbnailImage()
+//            if let profileImageName = video?.channel?.profileImageName {
+//                userProfileImageView.image = UIImage(named: profileImageName)
+//            }
+            setupProfileImage()
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
             if let channelName = video?.channel?.name, let numberOfViews = video?.numberOfViews {
@@ -38,17 +40,27 @@ class VideoCell: BaseCell {
                     titleLabelHeightConstraint?.constant = 20
                 }
             }
-            
-            
         }
     }
     
-    let thumbnailImageView: UIImageView = {
-        let imageView = UIImageView()
+    private func setupThumbnailImage() {
+        if let thumbnailImageUrl = video?.thumbnailImageName {
+            thumbnailImageView.loadImageUsingUrlString(urlString: thumbnailImageUrl)
+        }
+    }
+    
+    private func setupProfileImage() {
+        if let profileImageUrl = video?.channel?.profileImageName {
+            userProfileImageView.loadImageUsingUrlString(urlString: profileImageUrl)
+        }
+    }
+    
+    let thumbnailImageView: CustomImageView = {
+        let imageView = CustomImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
 //        imageView.backgroundColor = UIColor.blue
-        imageView.image = UIImage(named: "taylor_swift_blank_space")
+//        imageView.image = UIImage(named: "taylor_swift_blank_space")
         return imageView
     }()
     
@@ -58,12 +70,11 @@ class VideoCell: BaseCell {
         return view
     }()
     
-    let userProfileImageView: UIImageView = {
-        let imageView = UIImageView()
+    let userProfileImageView: CustomImageView = {
+        let imageView = CustomImageView()
         imageView.contentMode = .scaleAspectFill
 //        imageView.backgroundColor = UIColor.green
-        imageView.image = UIImage(named: "taylor_swift_profile")
-        imageView.contentMode = .scaleAspectFill
+//        imageView.image = UIImage(named: "taylor_swift_profile")
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true
         return imageView
