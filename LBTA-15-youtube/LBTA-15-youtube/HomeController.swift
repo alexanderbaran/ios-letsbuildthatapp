@@ -132,10 +132,29 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 //        print("search tapped")
     }
     
-    let settingsLauncher = SettingsLauncher()
+//    let settingsLauncher = SettingsLauncher()
+    /* Inside of a lazy var we are not actually executing this code everytime a view controller or anytime a class is being instantiated. It
+     gets called only when it is needed. Also the code inside this block only gets called once if the settingsLauncher variable is nil. */
+    lazy var settingsLauncher: SettingsLauncher = {
+        let launcher = SettingsLauncher()
+        launcher.homeController = self
+        return launcher
+    }()
     
     func handleMore() {
+//        settingsLauncher.homeController = self
         settingsLauncher.showSettings()
+//        showControllerForSettings()
+    }
+    
+    func showControllerForSettings(setting: Setting) {
+        let dummySettingsViewController = UIViewController()
+        dummySettingsViewController.view.backgroundColor = UIColor.white
+        dummySettingsViewController.navigationItem.title = setting.name.rawValue
+
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.pushViewController(dummySettingsViewController, animated: true)
     }
     
 //    let blackView = UIView()

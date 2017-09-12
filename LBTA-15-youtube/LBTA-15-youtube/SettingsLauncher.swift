@@ -15,12 +15,12 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     
     private let settings: [Setting] = {
         return [
-            Setting(name: "Settings", imageName: "settings"),
-            Setting(name: "Terms & privacy policy", imageName: "privacy"),
-            Setting(name: "Send Feedback", imageName: "feedback"),
-            Setting(name: "Help", imageName: "help"),
-            Setting(name: "Switch Account", imageName: "switch_account"),
-            Setting(name: "Cancel", imageName: "cancel")
+            Setting(name: .settings, imageName: "settings"),
+            Setting(name: .termsPrivacy, imageName: "privacy"),
+            Setting(name: .sendFeedback, imageName: "feedback"),
+            Setting(name: .help, imageName: "help"),
+            Setting(name: .switchAccount, imageName: "switch_account"),
+            Setting(name: .cancel, imageName: "cancel")
         ]
     }()
     
@@ -51,6 +51,25 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
         return 0
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let setting = settings[indexPath.item]
+//        print(setting.name)
+//        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+//            self.blackView.alpha = 0
+//            if let window = UIApplication.shared.keyWindow {
+//                self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
+//            }
+//        }) { (completed: Bool) in
+//            let setting = self.settings[indexPath.item]
+//            if setting.name != "Cancel" {
+//                self.homeController?.showControllerForSettings(setting: setting)
+//            }
+//        }
+        // Tutorial way did not work and gave errors.
+        let setting = self.settings[indexPath.item]
+        handleDismiss(sender: setting)
+    }
+    
     let blackView = UIView()
     
     let collectionView: UICollectionView = {
@@ -59,6 +78,8 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
         cv.backgroundColor = UIColor.white
         return cv
     }()
+    
+    var homeController: HomeController?
 
     func showSettings() {
         //        print("more tapped")
@@ -78,16 +99,38 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
             }, completion: nil)
             // https://stackoverflow.com/questions/35637041/how-does-uibutton-addtarget-self-work
             // https://stackoverflow.com/questions/6502843/buttons-target-is-always-self-can-i-set-to-be-another?rq=1
+            // https://stackoverflow.com/questions/28794332/swift-default-parameter-selector-syntax
             blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
         }
     }
     
-    func handleDismiss() {
+    // Tutorial way gave errors because handleDismiss could not take in Setting type as argument. Had to improvise.
+    // https://stackoverflow.com/questions/33443570/passing-parameters-to-a-selector-in-swift
+    func handleDismiss(sender: AnyObject) {
+//        // https://stackoverflow.com/questions/24006165/how-do-i-print-the-type-or-class-of-a-variable-in-swift
+//        if let tapGesture = sender as? UITapGestureRecognizer {
+//            let type = type(of: tapGesture.self)
+//            print("sender is actually a \(type)")
+//        }
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.blackView.alpha = 0
             if let window = UIApplication.shared.keyWindow {
                 self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
             }
-        }, completion: nil)
+        }) { (completed: Bool) in
+            if let setting = sender as? Setting {
+                if setting.name != .cancel {
+                    self.homeController?.showControllerForSettings(setting: setting)
+                }
+            }
+//            if setting.name != "Cancel" {
+//                self.homeController?.showControllerForSettings(setting: setting)
+//            }
+        }
     }
 }
+
+
+
+
+

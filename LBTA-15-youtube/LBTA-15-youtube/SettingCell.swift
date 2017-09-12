@@ -9,10 +9,10 @@
 import UIKit
 
 class Setting {
-    let name: String
+    let name: SettingName
     let imageName: String
     
-    init(name: String, imageName: String) {
+    init(name: SettingName, imageName: String) {
         self.name = name
         self.imageName = imageName
     }
@@ -22,7 +22,7 @@ class SettingCell: BaseCell {
     
     var setting: Setting? {
         didSet {
-            nameLabel.text = setting?.name
+            nameLabel.text = setting?.name.rawValue
             if let imageName = setting?.imageName {
                 iconImageView.image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
                 iconImageView.tintColor = UIColor.darkGray
@@ -42,6 +42,8 @@ class SettingCell: BaseCell {
         let label = UILabel()
         label.text = "Setting"
         label.font = UIFont.systemFont(ofSize: 13)
+        // Default is left.
+//        label.textAlignment = .left
         return label
     }()
     
