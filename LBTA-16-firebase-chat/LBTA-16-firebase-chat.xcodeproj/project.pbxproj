@@ -15,6 +15,7 @@
 		A37B73811F67E8AF008B92B8 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73801F67E8AF008B92B8 /* BaseCell.swift */; };
 		A37B73831F67E8D8008B92B8 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73821F67E8D8008B92B8 /* CustomImageView.swift */; };
 		A37B73861F67FE5E008B92B8 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73851F67FE5E008B92B8 /* LoginController.swift */; };
+		A37B73881F68808A008B92B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A37B73871F68808A008B92B8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A37B73801F67E8AF008B92B8 /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		A37B73821F67E8D8008B92B8 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		A37B73851F67FE5E008B92B8 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		A37B73871F68808A008B92B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				A37B73721F67E850008B92B8 /* Assets.xcassets */,
 				A37B73741F67E850008B92B8 /* LaunchScreen.storyboard */,
 				A37B73771F67E850008B92B8 /* Info.plist */,
+				A37B73871F68808A008B92B8 /* GoogleService-Info.plist */,
 			);
 			path = "LBTA-16-firebase-chat";
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A37B73881F68808A008B92B8 /* GoogleService-Info.plist in Resources */,
 				A37B73761F67E850008B92B8 /* LaunchScreen.storyboard in Resources */,
 				A37B73731F67E850008B92B8 /* Assets.xcassets in Resources */,
 			);

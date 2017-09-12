@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>381907113766-1f9g3jh05qm8phjgkp4hc7lima4vdssi.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.381907113766-1f9g3jh05qm8phjgkp4hc7lima4vdssi</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA9rKOJERhVRvq_6jXuUM-92JEnNAp9Z8k</string>
+	<key>GCM_SENDER_ID</key>
+	<string>381907113766</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.alexanderbaran.LBTA-16-firebase-chat</string>
+	<key>PROJECT_ID</key>
+	<string>lbta-16-firebase-chat</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lbta-16-firebase-chat.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:381907113766:ios:c8fc622eb9c19648</string>
+	<key>DATABASE_URL</key>
+	<string>https://lbta-16-firebase-chat.firebaseio.com</string>
+</dict>
+</plist>
