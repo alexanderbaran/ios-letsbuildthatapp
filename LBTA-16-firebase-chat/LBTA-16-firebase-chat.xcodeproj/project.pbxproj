@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D412808571F8374CC1609AA /* Pods_LBTA_16_firebase_chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C2ABDE9E0670A1FE3D43D1 /* Pods_LBTA_16_firebase_chat.framework */; };
 		A37B736C1F67E850008B92B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B736B1F67E850008B92B8 /* AppDelegate.swift */; };
 		A37B736E1F67E850008B92B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B736D1F67E850008B92B8 /* ViewController.swift */; };
 		A37B73731F67E850008B92B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A37B73721F67E850008B92B8 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		421D953E323D8108B4ADAF37 /* Pods-LBTA-16-firebase-chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBTA-16-firebase-chat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LBTA-16-firebase-chat/Pods-LBTA-16-firebase-chat.debug.xcconfig"; sourceTree = "<group>"; };
 		A37B73681F67E850008B92B8 /* LBTA-16-firebase-chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LBTA-16-firebase-chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37B736B1F67E850008B92B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A37B736D1F67E850008B92B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +32,8 @@
 		A37B73821F67E8D8008B92B8 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		A37B73851F67FE5E008B92B8 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		A37B73871F68808A008B92B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D1C2ABDE9E0670A1FE3D43D1 /* Pods_LBTA_16_firebase_chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LBTA_16_firebase_chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3DC043B0FF1C9976DB42E4C /* Pods-LBTA-16-firebase-chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBTA-16-firebase-chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-LBTA-16-firebase-chat/Pods-LBTA-16-firebase-chat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D412808571F8374CC1609AA /* Pods_LBTA_16_firebase_chat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18910943137709E892A20C21 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D1C2ABDE9E0670A1FE3D43D1 /* Pods_LBTA_16_firebase_chat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84CD6ECDA961D960D08343EB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				421D953E323D8108B4ADAF37 /* Pods-LBTA-16-firebase-chat.debug.xcconfig */,
+				F3DC043B0FF1C9976DB42E4C /* Pods-LBTA-16-firebase-chat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A37B735F1F67E850008B92B8 = {
 			isa = PBXGroup;
 			children = (
 				A37B736A1F67E850008B92B8 /* LBTA-16-firebase-chat */,
 				A37B73691F67E850008B92B8 /* Products */,
+				84CD6ECDA961D960D08343EB /* Pods */,
+				18910943137709E892A20C21 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +123,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A37B737A1F67E850008B92B8 /* Build configuration list for PBXNativeTarget "LBTA-16-firebase-chat" */;
 			buildPhases = (
+				164F7BA0634B4A04DF3ECD1C /* [CP] Check Pods Manifest.lock */,
 				A37B73641F67E850008B92B8 /* Sources */,
 				A37B73651F67E850008B92B8 /* Frameworks */,
 				A37B73661F67E850008B92B8 /* Resources */,
+				7BCDB4CA8B3FAB1668A0524A /* [CP] Embed Pods Frameworks */,
+				A2B51FDA63A8A8153DBCBABE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -159,6 +186,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		164F7BA0634B4A04DF3ECD1C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LBTA-16-firebase-chat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BCDB4CA8B3FAB1668A0524A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LBTA-16-firebase-chat/Pods-LBTA-16-firebase-chat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LBTA-16-firebase-chat/Pods-LBTA-16-firebase-chat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2B51FDA63A8A8153DBCBABE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LBTA-16-firebase-chat/Pods-LBTA-16-firebase-chat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A37B73641F67E850008B92B8 /* Sources */ = {
@@ -285,6 +372,7 @@
 		};
 		A37B737B1F67E850008B92B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 421D953E323D8108B4ADAF37 /* Pods-LBTA-16-firebase-chat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZQ32RSDG42;
@@ -298,6 +386,7 @@
 		};
 		A37B737C1F67E850008B92B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3DC043B0FF1C9976DB42E4C /* Pods-LBTA-16-firebase-chat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZQ32RSDG42;

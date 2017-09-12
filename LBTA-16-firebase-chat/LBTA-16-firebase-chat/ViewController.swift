@@ -7,16 +7,33 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+        
+        // User is not logged in.
+        if Auth.auth().currentUser?.uid == nil {
+            // We want to present the controller after its been loaded.
+            /* Fixes warnings like:
+             Presenting view controllers on detached view controllers is discouraged ..
+             Unbalanced calls to begin/end appearance transitions for .. */
+            perform(#selector(handleLogout), with: nil, afterDelay: 0)
+//            handleLogout()
+        }
     }
     
     func handleLogout() {
+        do {
+            // Log out user.
+            try Auth.auth().signOut()
+        } catch let error {
+            print(error)
+        }
         let loginController = LoginController()
 //        navigationController?.pushViewController(loginController, animated: true)
         present(loginController, animated: true, completion: nil)
