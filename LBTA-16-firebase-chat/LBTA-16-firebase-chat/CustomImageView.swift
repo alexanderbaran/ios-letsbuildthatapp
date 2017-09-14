@@ -17,11 +17,15 @@ class CustomImageView: UIImageView {
     var imageUrlString: String?
     
     func loadImageUsingUrlString(urlString: String) {
+        
+        // Blank out the image, before the image can download. So we don't have flicker with the prev image in the cell because of reuse of cells.
+        self.image = nil
+        
         imageUrlString = urlString
         /* When working with collection views and async data, should always cache the image. Caching the image for scrolling is a good
          practice as it makes everything seem much smoother and does not waste user or server bandwith. */
-        if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
-            self.image = imageFromCache
+        if let cachedImage = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
+            self.image = cachedImage
             return
         }
         //        print("requesting...")
@@ -32,12 +36,12 @@ class CustomImageView: UIImageView {
                 return
             }
             DispatchQueue.main.async {
-                let imageToCache = UIImage(data: data!)
-                // To prevent async image load scrolling bug on slow internet connections.
-                if self.imageUrlString == urlString {
-                    self.image = imageToCache
+                if let downloadedImage = UIImage(data: data!) {
+                    if self.imageUrlString == urlString {
+                        self.image = downloadedImage
+                    }
+                    imageCache.setObject(downloadedImage, forKey: urlString as AnyObject)
                 }
-                imageCache.setObject(imageToCache!, forKey: urlString as AnyObject)
             }
         })
         task.resume()

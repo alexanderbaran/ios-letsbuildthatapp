@@ -1,4 +1,4 @@
-//
+
 //  AppDelegate.swift
 //  LBTA-16-firebase-chat
 //

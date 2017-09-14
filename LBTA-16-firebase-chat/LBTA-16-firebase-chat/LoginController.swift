@@ -11,6 +11,10 @@ import Firebase
 
 class LoginController: UIViewController {
     
+    var ref: DatabaseReference!
+    
+    var messagesController: MessagesController?
+    
     let inputsContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.white
@@ -52,41 +56,9 @@ class LoginController: UIViewController {
                 print(error!)
             }
             // Successfully logged in our user.
+            print("Successfully logged in our user.")
+            self.messagesController?.fetchUserAndSetupNavBarTitle()
             self.dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    var ref: DatabaseReference!
-    
-    func handleRegister() {
-        // Guard statesments are really useful for forms and form validations.
-        guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text else {
-            print("Form is not valid.")
-            return
-        }
-        // https://firebase.google.com/docs/auth/ios/start
-        Auth.auth().createUser(withEmail: email, password: password) { (user: User?, error: Error?) in
-            if error != nil {
-                print(error!)
-                return
-            }
-            // Successfully authenticated user.
-            // Save user.
-            guard let uid = user?.uid else {
-                return
-            }
-            self.ref = Database.database().reference(fromURL: "https://lbta-16-firebase-chat.firebaseio.com/")
-            let usersReference = self.ref.child("users").child(uid)
-            let values = ["name": name, "email": email]
-            // Should, or have to name the error something else than the one above.
-            usersReference.updateChildValues(values, withCompletionBlock: { (errorUpdate: Error?, reference: DatabaseReference) in
-                if errorUpdate != nil {
-                    print(errorUpdate!)
-                    return
-                }
-                // Saved user successfully into Firebase DB.
-                self.dismiss(animated: true, completion: nil)
-            })
         }
     }
 
@@ -126,13 +98,15 @@ class LoginController: UIViewController {
         return textField
     }()
     
-    let profileImageView: UIImageView = {
+    lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "circle_plus")?.withRenderingMode(.alwaysTemplate)
         imageView.tintColor = UIColor.white
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
+        imageView.isUserInteractionEnabled = true
         return imageView
     }()
     
@@ -140,7 +114,7 @@ class LoginController: UIViewController {
         let sc = UISegmentedControl(items: ["Login", "Register"])
         sc.translatesAutoresizingMaskIntoConstraints = false
         sc.tintColor = UIColor.white
-        sc.selectedSegmentIndex = 1
+        sc.selectedSegmentIndex = 0
         sc.addTarget(self, action: #selector(handleLoginRegisterChange), for: .valueChanged)
         return sc
     }()
@@ -172,6 +146,8 @@ class LoginController: UIViewController {
         passwordTextFieldHeightAnchor?.isActive = false
         passwordTextFieldHeightAnchor = passwordTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: onLogin ? 1/2 : 1/3)
         passwordTextFieldHeightAnchor?.isActive = true
+        
+        profileImageView.alpha = onLogin ? 0 : 1
     }
     
     override func viewDidLoad() {
@@ -183,6 +159,8 @@ class LoginController: UIViewController {
         setupLoginRegisterButton()
         setupLoginRegisterSegmentedControl()
         setupProfileImageView()
+        
+        handleLoginRegisterChange()
     }
     
     var inputsContainerViewHeightAnchor: NSLayoutConstraint?
