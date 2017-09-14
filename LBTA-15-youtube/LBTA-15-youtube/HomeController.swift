@@ -12,6 +12,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 
     private let homeCellId = "homeCellId"
     private let feedCellId = "feedCellId"
+    private let trendingCellId = "trendingCellId"
+    private let subscriptionCellId = "subscriptionCellId"
     
     let titles = ["Home", "Trending", "Subscriptions", "Account"]
     
@@ -86,6 +88,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 //        collectionView?.register(VideoCell.self, forCellWithReuseIdentifier: homeCellId)
 //        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.register(FeedCell.self, forCellWithReuseIdentifier: feedCellId)
+        collectionView?.register(TrendingCell.self, forCellWithReuseIdentifier: trendingCellId)
+        collectionView?.register(SubscriptionCell.self, forCellWithReuseIdentifier: subscriptionCellId)
         
         // You can set padding like this too.
         collectionView?.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
@@ -216,7 +220,21 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: feedCellId, for: indexPath) as! FeedCell
+        
+        let identifier: String
+        
+        if indexPath.item == 1 {
+            identifier = trendingCellId
+//            return collectionView.dequeueReusableCell(withReuseIdentifier: trendingCellId, for: indexPath) as! TrendingCell
+        } else if indexPath.item == 2 {
+            identifier = subscriptionCellId
+//            return collectionView.dequeueReusableCell(withReuseIdentifier: subscriptionCellId, for: indexPath) as! SubscriptionCell
+        } else {
+            identifier = feedCellId
+        }
+        
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! FeedCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
 //        let colors: [UIColor] = [.blue, .green, UIColor.gray, UIColor.purple]
 //        cell.backgroundColor = colors[indexPath.item]
         return cell

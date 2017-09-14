@@ -97,8 +97,9 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
     }
     
     private func registerUserIntoDatabaseWithUID(uid: String, values: [String: Any]) {
-        self.ref = Database.database().reference(fromURL: "https://lbta-16-firebase-chat.firebaseio.com/")
-        let usersReference = self.ref.child("users").child(uid)
+//        self.ref = Database.database().reference(fromURL: "https://lbta-16-firebase-chat.firebaseio.com/")
+        let ref = Database.database().reference()
+        let usersReference = ref.child("users").child(uid)
 //        let values = ["name": name, "email": email, "profileImageUrl": metadata.downloadURL()]
         // Should, or have to name the error something else than the one above.
         usersReference.updateChildValues(values, withCompletionBlock: { (errorUpdate: Error?, reference: DatabaseReference) in

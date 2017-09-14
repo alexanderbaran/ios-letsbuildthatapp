@@ -12,10 +12,23 @@ class ApiService: NSObject {
     // Singleton.
     static let sharedInstance = ApiService()
     
+    let baseUrl = "https://s3-us-west-2.amazonaws.com/youtubeassets"
+    
     // https://stackoverflow.com/questions/42214840/swift-3-closure-use-of-non-escaping-parameter-may-allow-it-to-escape
     func fetchVideos(completion: @escaping ([Video]) -> ()) {
-        
-        let url = URL(string: "https://s3-us-west-2.amazonaws.com/youtubeassets/home.json")!
+        fetchFeedForUrlString(urlString: "\(baseUrl)/home.json", completion: completion)
+    }
+    
+    func fetchTrendingFeed(completion: @escaping ([Video]) -> ()) {
+        fetchFeedForUrlString(urlString: "\(baseUrl)/trending.json", completion: completion)
+    }
+    
+    func fetchSubscriptionFeed(completion: @escaping ([Video]) -> ()) {
+        fetchFeedForUrlString(urlString: "\(baseUrl)/subscriptions.json", completion: completion)
+    }
+    
+    func fetchFeedForUrlString(urlString: String, completion: @escaping ([Video]) -> ()) {
+        let url = URL(string: urlString)!
         let task = URLSession.shared.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
             if error != nil {
                 print(error!)
@@ -26,11 +39,10 @@ class ApiService: NSObject {
             // https://stackoverflow.com/questions/40057854/what-do-jsonserialization-options-do-and-how-do-they-change-jsonresult
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
-//                self.videos = [Video]()
+                //                self.videos = [Video]()
                 var videos = [Video]()
                 for dictionary in json as! [[String: Any]] {
                     //                    print(dictionary["title"])
-                    
                     guard let channelDictionary = dictionary["channel"] as? [String: Any] else {
                         print("channel not a dictionary")
                         break
@@ -50,7 +62,7 @@ class ApiService: NSObject {
                     DispatchQueue.main.async {
                         //                self.collectionView?.reloadData()
                         completion(videos)
-                    }                    
+                    }
                 }
             } catch let error {
                 print(error)
@@ -58,4 +70,8 @@ class ApiService: NSObject {
         }
         task.resume()
     }
+    
 }
+
+
+
