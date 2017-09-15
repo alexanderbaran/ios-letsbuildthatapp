@@ -23,6 +23,7 @@
 		A37B73971F69A455008B92B8 /* LoginController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73961F69A455008B92B8 /* LoginController+handlers.swift */; };
 		A37B73991F6A72C2008B92B8 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73981F6A72C2008B92B8 /* ChatLogController.swift */; };
 		A37B739B1F6AA250008B92B8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B739A1F6AA250008B92B8 /* Message.swift */; };
+		A37B73A11F6B5630008B92B8 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73A01F6B5630008B92B8 /* ChatMessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		A37B73961F69A455008B92B8 /* LoginController+handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginController+handlers.swift"; sourceTree = "<group>"; };
 		A37B73981F6A72C2008B92B8 /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
 		A37B739A1F6AA250008B92B8 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		A37B73A01F6B5630008B92B8 /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		D1C2ABDE9E0670A1FE3D43D1 /* Pods_LBTA_16_firebase_chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LBTA_16_firebase_chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DC043B0FF1C9976DB42E4C /* Pods-LBTA-16-firebase-chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBTA-16-firebase-chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-LBTA-16-firebase-chat/Pods-LBTA-16-firebase-chat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				A37B738F1F68B3C0008B92B8 /* UserCell.swift */,
+				A37B73A01F6B5630008B92B8 /* ChatMessageCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				A37B737F1F67E893008B92B8 /* Extensions.swift in Sources */,
 				A37B73971F69A455008B92B8 /* LoginController+handlers.swift in Sources */,
 				A37B73991F6A72C2008B92B8 /* ChatLogController.swift in Sources */,
+				A37B73A11F6B5630008B92B8 /* ChatMessageCell.swift in Sources */,
 				A37B738D1F68B0E9008B92B8 /* ChatUser.swift in Sources */,
 				A37B73901F68B3C0008B92B8 /* UserCell.swift in Sources */,
 				A37B738A1F68AD25008B92B8 /* NewMessageController.swift in Sources */,

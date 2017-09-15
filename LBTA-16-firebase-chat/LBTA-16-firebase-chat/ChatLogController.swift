@@ -11,19 +11,70 @@ import Firebase
 
 //class ChatLogController: UITableViewController {
 //class ChatLogController: UIViewController {
-class ChatLogController: UICollectionViewController, UITextFieldDelegate {
+class ChatLogController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout {
     
     var user: ChatUser? {
         didSet {
             navigationItem.title = user?.name
+            
+            observeMessages()
         }
     }
+    
+    var messages = [Message]()
+    
+    func observeMessages() {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            print("uid failed")
+            return
+        }
+        let userMessagesRef = Database.database().reference().child("user-messages").child(uid)
+        userMessagesRef.observe(.childAdded) { (snapshot: DataSnapshot) in
+//            print(snapshot)
+            let messageId = snapshot.key
+            let messagesRef = Database.database().reference().child("messages").child(messageId)
+            messagesRef.observeSingleEvent(of: .value, with: { (snapshot: DataSnapshot) in
+                guard let dictionary = snapshot.value as? [String: Any] else {
+                    return
+                }
+                let message = Message()
+                // Potential of crashing if keys don't match.
+                message.setValuesForKeys(dictionary)
+                if message.chatPartnerId() == self.user?.id {
+                    self.messages.append(message)
+                    DispatchQueue.main.async {
+                        self.collectionView?.reloadData()
+                    }
+                }
+            })
+        }
+    }
+    
+    private let chatMessageCellId = "chatMessageCellId"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        navigationItem.title = "Chat Log Controller"
         collectionView?.backgroundColor = .white
+        collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: chatMessageCellId)
+        collectionView?.alwaysBounceVertical = true
         setupInputComponents()
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: chatMessageCellId, for: indexPath) as! ChatMessageCell
+        let message = messages[indexPath.item]
+        cell.textView.text = message.text
+//        cell.backgroundColor = .blue
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 80)
     }
     
     lazy var inputTextField: UITextField = {
@@ -36,6 +87,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate {
     
     private func setupInputComponents() {
         let containerView = UIView()
+        containerView.backgroundColor = .white
 //        containerView.backgroundColor = .red
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -91,7 +143,10 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate {
             print("empty text")
             return
         }
-        let toId = user!.id!
+        guard let toId = user?.id else {
+            print("toId failed")
+            return
+        }
         guard let fromId = Auth.auth().currentUser?.uid else {
             print("fromId failed")
             return
@@ -100,7 +155,23 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate {
         // Cast to int if you don't want the decimals, perhaps might be better to include them too in your own app.
         let timestamp = Int(Date().timeIntervalSince1970)
         let values: [String: Any] = ["text": text, "fromId": fromId, "toId": toId, "timestamp": timestamp]
-        childRef.updateChildValues(values)
+//        childRef.updateChildValues(values)
+        childRef.updateChildValues(values) { (error: Error?, reference: DatabaseReference) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            let userMessagesRef = Database.database().reference().child("user-messages").child(fromId)
+            let messageId = childRef.key
+            userMessagesRef.updateChildValues([messageId: 1])
+            
+            let recipientUserMessagesRef = Database.database().reference().child("user-messages").child(toId)
+            recipientUserMessagesRef.updateChildValues([messageId: 1])
+        }
+        
+        
+        
+        
         inputTextField.text = ""
     }
     
