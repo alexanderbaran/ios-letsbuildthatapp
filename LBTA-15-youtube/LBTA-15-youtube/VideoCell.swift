@@ -23,7 +23,7 @@ class VideoCell: BaseCell {
             setupProfileImage()
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
-            if let channelName = video?.channel?.name, let numberOfViews = video?.numberOfViews {
+            if let channelName = video?.channel?.name, let numberOfViews = video?.number_of_views {
                 subtitleTextView.text = "\(channelName) • \(numberFormatter.string(from: numberOfViews)!) • 2 years ago"
             }
             
@@ -44,13 +44,13 @@ class VideoCell: BaseCell {
     }
     
     private func setupThumbnailImage() {
-        if let thumbnailImageUrl = video?.thumbnailImageName {
+        if let thumbnailImageUrl = video?.thumbnail_image_name {
             thumbnailImageView.loadImageUsingUrlString(urlString: thumbnailImageUrl)
         }
     }
     
     private func setupProfileImage() {
-        if let profileImageUrl = video?.channel?.profileImageName {
+        if let profileImageUrl = video?.channel?.profile_image_name {
             userProfileImageView.loadImageUsingUrlString(urlString: profileImageUrl)
         }
     }

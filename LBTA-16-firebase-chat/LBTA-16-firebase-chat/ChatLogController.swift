@@ -58,7 +58,13 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         collectionView?.backgroundColor = .white
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: chatMessageCellId)
         collectionView?.alwaysBounceVertical = true
+        collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 58, right: 0)
+        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         setupInputComponents()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionView?.collectionViewLayout.invalidateLayout()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -70,11 +76,27 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         let message = messages[indexPath.item]
         cell.textView.text = message.text
 //        cell.backgroundColor = .blue
+        if let text = message.text {
+            // 32 is a guess.
+            cell.bubbleWidthAnchor?.constant = estimateFrameForText(text: text).width + 32
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 80)
+        var height: CGFloat = 80
+        if let text = messages[indexPath.item].text {
+            height = estimateFrameForText(text: text).height + 20
+        }
+        return CGSize(width: view.frame.width, height: height)
+    }
+    
+    private func estimateFrameForText(text: String) -> CGRect {
+        let size = CGSize(width: 200, height: 1000)
+        let options = NSStringDrawingOptions.usesFontLeading.union(NSStringDrawingOptions.usesLineFragmentOrigin)
+        let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 16)]
+        let frame = NSString(string: text).boundingRect(with: size, options: options, attributes: attributes, context: nil)
+        return frame
     }
     
     lazy var inputTextField: UITextField = {
@@ -169,10 +191,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
             recipientUserMessagesRef.updateChildValues([messageId: 1])
         }
         
-        
-        
-        
-        inputTextField.text = ""
+        inputTextField.text = nil
     }
     
     // When we tap enter we execute this code.

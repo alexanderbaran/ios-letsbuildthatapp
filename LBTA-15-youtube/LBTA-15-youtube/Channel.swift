@@ -8,7 +8,8 @@
 
 import Foundation
 
-class Channel: NSObject {
+class Channel: SafeJsonObject {
     var name: String?
-    var profileImageName: String?
+//    var profileImageName: String?
+    var profile_image_name: String?
 }

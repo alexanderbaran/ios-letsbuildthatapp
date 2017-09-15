@@ -16,7 +16,8 @@ class ApiService: NSObject {
     
     // https://stackoverflow.com/questions/42214840/swift-3-closure-use-of-non-escaping-parameter-may-allow-it-to-escape
     func fetchVideos(completion: @escaping ([Video]) -> ()) {
-        fetchFeedForUrlString(urlString: "\(baseUrl)/home.json", completion: completion)
+//        fetchFeedForUrlString(urlString: "\(baseUrl)/home.json", completion: completion)
+        fetchFeedForUrlString(urlString: "\(baseUrl)/home_num_likes.json", completion: completion)
     }
     
     func fetchTrendingFeed(completion: @escaping ([Video]) -> ()) {
@@ -38,31 +39,44 @@ class ApiService: NSObject {
             //            print(str)
             // https://stackoverflow.com/questions/40057854/what-do-jsonserialization-options-do-and-how-do-they-change-jsonresult
             do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
+                guard let data = data else {
+                    print("data failed")
+                    return
+                }
+                guard let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [[String: Any]] else {
+                    print("json failed")
+                    return
+                }
                 //                self.videos = [Video]()
-                var videos = [Video]()
-                for dictionary in json as! [[String: Any]] {
-                    //                    print(dictionary["title"])
-                    guard let channelDictionary = dictionary["channel"] as? [String: Any] else {
-                        print("channel not a dictionary")
-                        break
-                    }
-                    
-                    let channel = Channel()
-                    channel.name = channelDictionary["name"] as? String
-                    channel.profileImageName = channelDictionary["profile_image_name"] as? String
-                    
-                    let video = Video()
-                    video.title = dictionary["title"] as? String
-                    video.thumbnailImageName = dictionary["thumbnail_image_name"] as? String
-                    video.channel = channel
-                    
-                    videos.append(video)
-                    
-                    DispatchQueue.main.async {
-                        //                self.collectionView?.reloadData()
-                        completion(videos)
-                    }
+//                var videos = [Video]()
+//                for dictionary in json {
+//                    //                    print(dictionary["title"])
+////                    guard let channelDictionary = dictionary["channel"] as? [String: Any] else {
+////                        print("channel not a dictionary")
+////                        break
+////                    }
+//                    
+////                    let channel = Channel()
+//////                    channel.name = channelDictionary["name"] as? String
+//////                    channel.profileImageName = channelDictionary["profile_image_name"] as? String
+////                    channel.setValuesForKeys(channelDictionary)
+//                    
+//                    let video = Video(dictionary: dictionary)
+////                    video.title = dictionary["title"] as? String
+////                    video.thumbnailImageName = dictionary["thumbnail_image_name"] as? String
+////                    video.numberOfViews = dictionary["number_of_views"] as? NSNumber
+////                    video.setValuesForKeys(dictionary)
+////                    video.channel = channel
+//                    
+//                    videos.append(video)
+//                    
+//                }
+                
+                let videos = json.map({ Video(dictionary: $0) })
+                
+                DispatchQueue.main.async {
+                    //                self.collectionView?.reloadData()
+                    completion(videos)
                 }
             } catch let error {
                 print(error)
@@ -72,6 +86,42 @@ class ApiService: NSObject {
     }
     
 }
+
+
+
+
+
+//let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
+////                self.videos = [Video]()
+//var videos = [Video]()
+//for dictionary in json as! [[String: Any]] {
+//    //                    print(dictionary["title"])
+//    guard let channelDictionary = dictionary["channel"] as? [String: Any] else {
+//        print("channel not a dictionary")
+//        break
+//    }
+//    
+//    let channel = Channel()
+//    channel.name = channelDictionary["name"] as? String
+//    channel.profileImageName = channelDictionary["profile_image_name"] as? String
+//    
+//    let video = Video()
+//    video.title = dictionary["title"] as? String
+//    video.thumbnailImageName = dictionary["thumbnail_image_name"] as? String
+//    video.channel = channel
+//    
+//    videos.append(video)
+//    
+//    DispatchQueue.main.async {
+//        //                self.collectionView?.reloadData()
+//        completion(videos)
+//}
+
+
+
+
+
+
 
 
 
