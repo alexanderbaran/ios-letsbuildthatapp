@@ -85,6 +85,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         
         let frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
         let chatInputContainerView = ChatInputContainerView(frame: frame)
+        chatInputContainerView.chatLogController = self
         return chatInputContainerView
         
 //        let containerView = UIView()
@@ -528,11 +529,11 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         }
     }
     
-    // When we tap enter we execute this code.
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        handleSend()
-        return true
-    }
+//    // When we tap enter we execute this code.
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        handleSend()
+//        return true
+//    }
     
     var startingFrame: CGRect?
     var blackBackgroundView: UIView?
