@@ -16,7 +16,14 @@ class UserCell: UITableViewCell {
             
             setupNameAndProfileImage()
             
-            detailTextLabel?.text = message?.text
+            if message?.videoUrl != nil {
+                detailTextLabel?.text = "[Sent a video clip]"
+            } else if message?.imageUrl != nil {
+                detailTextLabel?.text = "[Sent an image]"
+            } else {
+                detailTextLabel?.text = message?.text
+            }
+            
             
             if let timestamp = message?.timestamp?.doubleValue {
                 let timestampDate = Date(timeIntervalSince1970: timestamp)

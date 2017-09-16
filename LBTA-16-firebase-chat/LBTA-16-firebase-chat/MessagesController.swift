@@ -24,7 +24,35 @@ class MessagesController: UITableViewController {
         
         tableView.register(UserCell.self, forCellReuseIdentifier: userCellId)
         
+        tableView.allowsMultipleSelectionDuringEditing = true
+        
 //        observeMessages()
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        print(indexPath.row)
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let message = self.messages[indexPath.row]
+        if let chatPartnerId = message.chatPartnerId() {
+            Database.database().reference().child("user-messages").child(uid).child(chatPartnerId).removeValue(completionBlock: { (error: Error?, reference: DatabaseReference) in
+                if error != nil {
+                    print("Failed to delete message: ", error!)
+                    return
+                }
+                /* This is one way of updating the table, but it's actually not that safe. The issue here is that if we delete a message, and send another one to another user, the deleted message comes back. The reason for why that is happening is because the true data storage for all of our messages actually exists inside of messagesDictionary. The approach of deleting the row from the index path is not exactly all that safe because you can have a bunch of messages coming in to your application and what will happen is that through various steps of updating your table you don't actually have a reliable index path to which messages you are trying to delete. Imagine your application having thousands of messages coming in and out, the index path for whenever you hit the delete button is not exactly going to be the correct message when the delete actually occurs. So it actually takes some time perhaps maybe half a second or one whole second, and then the data inside your messages array becomes stale after a while. */
+//                self.messages.remove(at: indexPath.row)
+//                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                self.messagesDictionary.removeValue(forKey: chatPartnerId)
+                // The only disadvantage of this is that the animation is not as smooth.
+                self.attemptReloadOfTable()
+            })
+        }
     }
     
     var messages = [Message]()
@@ -38,29 +66,65 @@ class MessagesController: UITableViewController {
         let ref = Database.database().reference().child("user-messages").child(uid)
         ref.observe(.childAdded) { (snapshot: DataSnapshot) in
 //            print(snapshot)
-            let messageId = snapshot.key
-            let messageReference = Database.database().reference().child("messages").child(messageId)
-            messageReference.observeSingleEvent(of: .value, with: { (snapshot: DataSnapshot) in
-                if let dictionary = snapshot.value as? [String: Any] {
-                    let message = Message()
-                    message.setValuesForKeys(dictionary)
-                    //                print(message.text)
-                    //                self.messages.append(message)
-                    if let chatPartnerId = message.chatPartnerId() {
-                        self.messagesDictionary[chatPartnerId] = message
-                        self.messages = Array(self.messagesDictionary.values)
-                        self.messages.sort(by: { (message1: Message, message2: Message) -> Bool in
-                            if let m1t = message1.timestamp?.intValue, let m2t = message2.timestamp?.intValue {
-                                return m1t > m2t
-                            }
-                            return false
-                        })
-                    }
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                }
+//            let messageId = snapshot.key
+            let userId = snapshot.key
+            Database.database().reference().child("user-messages").child(uid).child(userId).observe(.childAdded, with: { (snapshot: DataSnapshot) in
+//                print(snapshot)
+                let messageId = snapshot.key
+                self.fetchMessageWithMessageId(messageId: messageId)
             })
+        }
+        
+        // Also listen for when a message is removed in case it gets deleted from an outside source.
+        ref.observe(.childRemoved) { (snapshot: DataSnapshot) in
+//            print(snapshot.key)
+//            print(self.messagesDictionary)
+            self.messagesDictionary.removeValue(forKey: snapshot.key)
+            // This is actually a func written by us, that does the dispatch inside the function.
+            self.attemptReloadOfTable()
+        }
+    }
+    
+    private func fetchMessageWithMessageId(messageId: String) {
+        let messageReference = Database.database().reference().child("messages").child(messageId)
+        messageReference.observeSingleEvent(of: .value, with: { (snapshot: DataSnapshot) in
+            if let dictionary = snapshot.value as? [String: Any] {
+                let message = Message(dictionary: dictionary)
+//                message.setValuesForKeys(dictionary)
+                //                print(message.text)
+                //                self.messages.append(message)
+                if let chatPartnerId = message.chatPartnerId() {
+                    self.messagesDictionary[chatPartnerId] = message
+                }
+                self.attemptReloadOfTable()
+            }
+        })
+    }
+    
+    var timer: Timer?
+    
+    private func attemptReloadOfTable() {
+        // https://www.youtube.com/watch?v=JK7pHuSfLyA
+        /* We invalidate the timer every time we get a new message. And then the last message will run the timer because there
+         are no other to invalidate after the last one. */
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 0.15, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
+    }
+    
+    func handleReloadTable() {
+        
+        messages = Array(messagesDictionary.values)
+        messages.sort(by: { (message1: Message, message2: Message) -> Bool in
+            if let m1t = message1.timestamp?.intValue, let m2t = message2.timestamp?.intValue {
+                return m1t > m2t
+            }
+            return false
+        })
+        
+        DispatchQueue.main.async {
+            // Should only reload table once and not many times.
+            print("we reloaded the table")
+            self.tableView.reloadData()
         }
     }
     
