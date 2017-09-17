@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Remember you can also use extension to extend your classes to refactor code.
 class ChatInputContainerView: UIView, UITextFieldDelegate {
     
     var chatLogController: ChatLogController? {

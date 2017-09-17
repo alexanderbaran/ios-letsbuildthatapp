@@ -43,29 +43,50 @@ class FeedCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
         collectionView.register(VideoCell.self, forCellWithReuseIdentifier: videoCellId)
     }
     
-        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return videos?.count ?? 0
-        }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return videos?.count ?? 0
+    }
     
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: videoCellId, for: indexPath) as! VideoCell
-            cell.video = videos?[indexPath.item]
-            return cell
-        }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: videoCellId, for: indexPath) as! VideoCell
+        cell.video = videos?[indexPath.item]
+        return cell
+    }
     
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            /* Videos on YouTube are 16:9 ratio. */
-            let imageHeight = (frame.width - 16 - 16) * (9 / 16)
-            return CGSize(width: frame.width, height: imageHeight + 16 + 8 + 44 + 40 + 1)
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        /* Videos on YouTube are 16:9 ratio. */
+        let imageHeight = (frame.width - 16 - 16) * (9 / 16)
+        return CGSize(width: frame.width, height: imageHeight + 16 + 8 + 44 + 40 + 1)
+    }
     
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            // Eliminates the actual space that we see between each one of the cells.
-            return 0
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        // Eliminates the actual space that we see between each one of the cells.
+        return 0
+    }
     
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//            return UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        //            return UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let videoLauncher = VideoLauncher()
+        videoLauncher.showVideoPlayer()
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
