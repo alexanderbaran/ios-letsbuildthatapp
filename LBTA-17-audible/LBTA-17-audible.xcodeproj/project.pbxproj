@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A37B73B31F6F0032008B92B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73B21F6F0032008B92B8 /* AppDelegate.swift */; };
-		A37B73B51F6F0032008B92B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73B41F6F0032008B92B8 /* ViewController.swift */; };
+		A37B73B51F6F0032008B92B8 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73B41F6F0032008B92B8 /* LoginController.swift */; };
 		A37B73BA1F6F0032008B92B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A37B73B91F6F0032008B92B8 /* Assets.xcassets */; };
 		A37B73BD1F6F0032008B92B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A37B73BB1F6F0032008B92B8 /* LaunchScreen.storyboard */; };
 		A37B73C61F6F00A2008B92B8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73C51F6F00A2008B92B8 /* Extensions.swift */; };
@@ -19,12 +19,15 @@
 		A37B73D31F6F43F3008B92B8 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73D21F6F43F3008B92B8 /* LoginCell.swift */; };
 		A37B73D51F6F47A1008B92B8 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73D41F6F47A1008B92B8 /* CustomColor.swift */; };
 		A37B73D71F6F49F6008B92B8 /* LeftPaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73D61F6F49F6008B92B8 /* LeftPaddedTextField.swift */; };
+		A37B73D91F6FE03C008B92B8 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73D81F6FE03C008B92B8 /* MainNavigationController.swift */; };
+		A37B73DB1F6FE1FB008B92B8 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73DA1F6FE1FB008B92B8 /* HomeController.swift */; };
+		A37B73DD1F6FF287008B92B8 /* UserDefaults+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73DC1F6FF287008B92B8 /* UserDefaults+helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A37B73AF1F6F0032008B92B8 /* LBTA-17-audible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LBTA-17-audible.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37B73B21F6F0032008B92B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A37B73B41F6F0032008B92B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A37B73B41F6F0032008B92B8 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		A37B73B91F6F0032008B92B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A37B73BC1F6F0032008B92B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A37B73BE1F6F0032008B92B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -36,6 +39,9 @@
 		A37B73D21F6F43F3008B92B8 /* LoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
 		A37B73D41F6F47A1008B92B8 /* CustomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		A37B73D61F6F49F6008B92B8 /* LeftPaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftPaddedTextField.swift; sourceTree = "<group>"; };
+		A37B73D81F6FE03C008B92B8 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		A37B73DA1F6FE1FB008B92B8 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		A37B73DC1F6FF287008B92B8 /* UserDefaults+helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 				A37B73C71F6F00BA008B92B8 /* BaseCell.swift */,
 				A37B73D41F6F47A1008B92B8 /* CustomColor.swift */,
 				A37B73C51F6F00A2008B92B8 /* Extensions.swift */,
+				A37B73DC1F6FF287008B92B8 /* UserDefaults+helpers.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -112,7 +119,9 @@
 		A37B73D11F6F254A008B92B8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A37B73B41F6F0032008B92B8 /* ViewController.swift */,
+				A37B73B41F6F0032008B92B8 /* LoginController.swift */,
+				A37B73D81F6FE03C008B92B8 /* MainNavigationController.swift */,
+				A37B73DA1F6FE1FB008B92B8 /* HomeController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -190,12 +199,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A37B73C81F6F00BA008B92B8 /* BaseCell.swift in Sources */,
-				A37B73B51F6F0032008B92B8 /* ViewController.swift in Sources */,
+				A37B73B51F6F0032008B92B8 /* LoginController.swift in Sources */,
 				A37B73D71F6F49F6008B92B8 /* LeftPaddedTextField.swift in Sources */,
+				A37B73DD1F6FF287008B92B8 /* UserDefaults+helpers.swift in Sources */,
+				A37B73D91F6FE03C008B92B8 /* MainNavigationController.swift in Sources */,
 				A37B73D51F6F47A1008B92B8 /* CustomColor.swift in Sources */,
 				A37B73CC1F6F2092008B92B8 /* PageCell.swift in Sources */,
 				A37B73D31F6F43F3008B92B8 /* LoginCell.swift in Sources */,
 				A37B73C61F6F00A2008B92B8 /* Extensions.swift in Sources */,
+				A37B73DB1F6FE1FB008B92B8 /* HomeController.swift in Sources */,
 				A37B73CE1F6F24F8008B92B8 /* Page.swift in Sources */,
 				A37B73B31F6F0032008B92B8 /* AppDelegate.swift in Sources */,
 				A37B73CA1F6F00D4008B92B8 /* CustomImageView.swift in Sources */,

@@ -8,7 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+/* delegates need to be specified as class instead of just plain protocol so that we can use weak keyword to break retain cycles. */
+protocol LoginControllerDelegate: class {
+    func finishLoggingIn()
+}
+
+class LoginController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, LoginControllerDelegate {
     
     private let pageCellId = "pageCellId"
     private let loginCellId = "loginCellId"
@@ -179,13 +184,25 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item == pages.count {
             // We are on the last page.
-            let loginCell = collectionView.dequeueReusableCell(withReuseIdentifier: loginCellId, for: indexPath)
+            let loginCell = collectionView.dequeueReusableCell(withReuseIdentifier: loginCellId, for: indexPath) as! LoginCell
+//            loginCell.loginController = self
+            loginCell.delegate = self
             return loginCell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: pageCellId, for: indexPath) as! PageCell
         let page = pages[indexPath.item]
         cell.page = page
         return cell
+    }
+    
+    func finishLoggingIn() {
+        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
+        guard let mainNavigationController = rootViewController as? MainNavigationController else { return }
+        mainNavigationController.viewControllers = [HomeController()]
+//        UserDefaults.standard.set(true, forKey: "isLoggedIn")
+//        UserDefaults.standard.synchronize()
+        UserDefaults.standard.setIsLoggedIn(value: true)
+        dismiss(animated: true, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

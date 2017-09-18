@@ -41,14 +41,27 @@ class LoginCell: BaseCell {
         return textField
     }()
     
-    let loginButton: UIButton = {
+    lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = CustomColor.orange
         button.setTitle("Log in", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = LoginCell.cornerRadius
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
+    
+    /* Watch out for retain cycles. LoginCell knows about LoginController and LoginController knows about the LoginCell. Both of these components point to each
+     other right now and so we have this retain cycle. We can't perform weak like this because delegates need to be specified as class instead of just a plain
+     old protocol. */
+//    var loginController: LoginController?
+    
+    weak var delegate: LoginControllerDelegate?
+    
+    func handleLogin() {
+//        loginController?.finishLoggingIn()
+        delegate?.finishLoggingIn()
+    }
     
     override func setupViews() {
 //        backgroundColor = .red
