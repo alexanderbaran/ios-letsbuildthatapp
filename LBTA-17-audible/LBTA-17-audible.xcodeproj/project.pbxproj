@@ -15,6 +15,10 @@
 		A37B73C81F6F00BA008B92B8 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73C71F6F00BA008B92B8 /* BaseCell.swift */; };
 		A37B73CA1F6F00D4008B92B8 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73C91F6F00D4008B92B8 /* CustomImageView.swift */; };
 		A37B73CC1F6F2092008B92B8 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73CB1F6F2092008B92B8 /* PageCell.swift */; };
+		A37B73CE1F6F24F8008B92B8 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73CD1F6F24F8008B92B8 /* Page.swift */; };
+		A37B73D31F6F43F3008B92B8 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73D21F6F43F3008B92B8 /* LoginCell.swift */; };
+		A37B73D51F6F47A1008B92B8 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73D41F6F47A1008B92B8 /* CustomColor.swift */; };
+		A37B73D71F6F49F6008B92B8 /* LeftPaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B73D61F6F49F6008B92B8 /* LeftPaddedTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		A37B73C71F6F00BA008B92B8 /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		A37B73C91F6F00D4008B92B8 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		A37B73CB1F6F2092008B92B8 /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
+		A37B73CD1F6F24F8008B92B8 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		A37B73D21F6F43F3008B92B8 /* LoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
+		A37B73D41F6F47A1008B92B8 /* CustomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
+		A37B73D61F6F49F6008B92B8 /* LeftPaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftPaddedTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +69,9 @@
 			isa = PBXGroup;
 			children = (
 				A37B73B21F6F0032008B92B8 /* AppDelegate.swift */,
-				A37B73CB1F6F2092008B92B8 /* PageCell.swift */,
-				A37B73B41F6F0032008B92B8 /* ViewController.swift */,
+				A37B73CF1F6F2531008B92B8 /* Model */,
+				A37B73D01F6F253D008B92B8 /* View */,
+				A37B73D11F6F254A008B92B8 /* Controller */,
 				A37B73C41F6F0084008B92B8 /* Helpers */,
 				A37B73B91F6F0032008B92B8 /* Assets.xcassets */,
 				A37B73BB1F6F0032008B92B8 /* LaunchScreen.storyboard */,
@@ -76,9 +85,36 @@
 			children = (
 				A37B73C91F6F00D4008B92B8 /* CustomImageView.swift */,
 				A37B73C71F6F00BA008B92B8 /* BaseCell.swift */,
+				A37B73D41F6F47A1008B92B8 /* CustomColor.swift */,
 				A37B73C51F6F00A2008B92B8 /* Extensions.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		A37B73CF1F6F2531008B92B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A37B73CD1F6F24F8008B92B8 /* Page.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A37B73D01F6F253D008B92B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A37B73CB1F6F2092008B92B8 /* PageCell.swift */,
+				A37B73D21F6F43F3008B92B8 /* LoginCell.swift */,
+				A37B73D61F6F49F6008B92B8 /* LeftPaddedTextField.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A37B73D11F6F254A008B92B8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A37B73B41F6F0032008B92B8 /* ViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,8 +191,12 @@
 			files = (
 				A37B73C81F6F00BA008B92B8 /* BaseCell.swift in Sources */,
 				A37B73B51F6F0032008B92B8 /* ViewController.swift in Sources */,
+				A37B73D71F6F49F6008B92B8 /* LeftPaddedTextField.swift in Sources */,
+				A37B73D51F6F47A1008B92B8 /* CustomColor.swift in Sources */,
 				A37B73CC1F6F2092008B92B8 /* PageCell.swift in Sources */,
+				A37B73D31F6F43F3008B92B8 /* LoginCell.swift in Sources */,
 				A37B73C61F6F00A2008B92B8 /* Extensions.swift in Sources */,
+				A37B73CE1F6F24F8008B92B8 /* Page.swift in Sources */,
 				A37B73B31F6F0032008B92B8 /* AppDelegate.swift in Sources */,
 				A37B73CA1F6F00D4008B92B8 /* CustomImageView.swift in Sources */,
 			);
