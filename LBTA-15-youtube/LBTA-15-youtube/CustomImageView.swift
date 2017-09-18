@@ -8,7 +8,8 @@
 
 import  UIKit
 
-let imageCache = NSCache<AnyObject, AnyObject>()
+//let imageCache = NSCache<AnyObject, AnyObject>()
+let imageCache = NSCache<NSString, UIImage>()
 
 class CustomImageView: UIImageView {
     
@@ -20,7 +21,8 @@ class CustomImageView: UIImageView {
         imageUrlString = urlString
         /* When working with collection views and async data, should always cache the image. Caching the image for scrolling is a good
          practice as it makes everything seem much smoother and does not waste user or server bandwith. */
-        if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
+//        if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
+        if let imageFromCache = imageCache.object(forKey: urlString as NSString) {
             self.image = imageFromCache
             return
         }
@@ -37,7 +39,8 @@ class CustomImageView: UIImageView {
                 if self.imageUrlString == urlString {
                     self.image = imageToCache
                 }
-                imageCache.setObject(imageToCache!, forKey: urlString as AnyObject)
+//                imageCache.setObject(imageToCache!, forKey: urlString as AnyObject)
+                imageCache.setObject(imageToCache!, forKey: urlString as NSString)
             }
         })
         task.resume()
