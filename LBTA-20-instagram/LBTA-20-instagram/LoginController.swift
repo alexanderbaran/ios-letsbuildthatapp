@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginController: UIViewController {
+    
+    // This method did not work that Ø tried. Also this method is not good becaus if the user is logged in, then this is never set.
+//    var mainTabBarController: MainTabBarController?
     
     let logoContainerView: UIView = {
         let view = UIView()
         let logoImageView = UIImageView(image: UIImage(named: "Instagram_logo_white"))
-//        logoImageView.backgroundColor = .red
         logoImageView.contentMode = .scaleAspectFill
         view.addSubview(logoImageView)
         logoImageView.anchor(top: nil, left: nil, bottom: nil, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 200, heightConstant: 50)
@@ -28,10 +31,9 @@ class LoginController: UIViewController {
         textField.placeholder = "Email"
         textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
         textField.borderStyle = .roundedRect
-        //        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.keyboardType = .emailAddress
-//        textField.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
+        textField.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
         return textField
     }()
     
@@ -40,9 +42,8 @@ class LoginController: UIViewController {
         textField.placeholder = "Password"
         textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
         textField.borderStyle = .roundedRect
-        //        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont.systemFont(ofSize: 14)
-//        textField.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
+        textField.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
         textField.isSecureTextEntry = true
         return textField
     }()
@@ -54,10 +55,41 @@ class LoginController: UIViewController {
         button.layer.cornerRadius = 5
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(.white, for: .normal)
-//        button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         button.isEnabled = false
         return button
     }()
+    
+    func handleLogin() {
+        guard let email = emailTextField.text, email != "" else { return }
+        guard let password = passwordTextField.text, password.characters.count >= 6 else { return }
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error: Error?) in
+            if error != nil {
+                print("Failed to sign in with email:", error!)
+                return
+            }
+            print("Successfully logged back in with user:", user?.uid ?? "")
+            // This method that Ø tried did not work. It is not the same as the one set in AppDelegate.swift. I checked the memory location.
+//            self.mainTabBarController?.setupViewControllers()
+            // rootViewController here is the MainTabBarController because we set it in AppDelegate.swift
+            guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+            mainTabBarController.setupViewControllers()
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func handleTextInputChange() {
+        let isEmailValid = emailTextField.text?.characters.count ?? 0 > 0
+        let isPasswordValid = passwordTextField.text?.characters.count ?? 0 >= 6
+        let isFormValid = isEmailValid && isPasswordValid
+        if isFormValid {
+            loginButton.backgroundColor = activeBlue
+            loginButton.isEnabled = true
+        } else {
+            loginButton.backgroundColor = disabledBlue
+            loginButton.isEnabled = false
+        }
+    }
     
     lazy var dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)

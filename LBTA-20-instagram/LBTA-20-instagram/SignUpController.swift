@@ -60,7 +60,6 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         textField.placeholder = "Email"
         textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
         textField.borderStyle = .roundedRect
-//        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.keyboardType = .emailAddress
         textField.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
@@ -87,7 +86,6 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         textField.placeholder = "Username"
         textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
         textField.borderStyle = .roundedRect
-//        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
         return textField
@@ -98,7 +96,6 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         textField.placeholder = "Password"
         textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
         textField.borderStyle = .roundedRect
-//        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
         textField.isSecureTextEntry = true
@@ -159,6 +156,10 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
                         return
                     }
                     print("Successfully saved user info to db.")
+                    // rootViewController here is the MainTabBarController because we set it in AppDelegate.swift
+                    guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+                    mainTabBarController.setupViewControllers()
+                    self.dismiss(animated: true, completion: nil)
                 })
             })
 //            let values = ["username": username]

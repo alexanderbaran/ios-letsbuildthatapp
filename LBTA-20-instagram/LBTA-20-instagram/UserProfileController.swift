@@ -37,6 +37,10 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
             do {
                 try Auth.auth().signOut()
                 // Need to present some kind of login controller.
+                let loginController = LoginController()
+                /* The reason why we need the navigation controller is because we can potentially push the registration controller on to the stack whenever we have the login views in play. */
+                let navigationController = UINavigationController(rootViewController: loginController)
+                self.present(navigationController, animated: true, completion: nil)
             } catch let error {
                 print("Failed to sign out:", error)
             }
@@ -64,7 +68,8 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = (view.frame.width / 3) - 1
+        let rows: CGFloat = 3
+        let size = (view.frame.width - rows + 1 ) / rows
         return CGSize(width: size, height: size)
     }
     
