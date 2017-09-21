@@ -1,0 +1,9 @@
+platform :ios, '10.3'
+
+target 'LBTA-20-instagram' do
+    use_frameworks!
+    pod 'Firebase'
+    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Storage'
+end
