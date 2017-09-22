@@ -17,11 +17,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         super.viewDidLoad()
         
         collectionView?.backgroundColor = .white
-        
         collectionView?.register(HomePostCell.self, forCellWithReuseIdentifier: homePostCellId)
         
         setupNavigationItems()
-        
         fetchPosts()
     }
     
@@ -61,7 +59,28 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 200)
+        // userProfileImageView with top and bottom constants above and below the userProfileImageView.
+        var height: CGFloat = 40 + 8 + 8
+        height += view.frame.width // Square image.
+        height += 50 // For bottom row of icons.
+        height += 60 // Arbitrary for caption for now.
+        return CGSize(width: view.frame.width, height: height)
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
