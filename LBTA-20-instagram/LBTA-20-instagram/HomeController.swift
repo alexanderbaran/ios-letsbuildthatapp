@@ -27,14 +27,19 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     fileprivate func fetchPosts() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        let ref = Database.database().reference().child("posts").child(uid)
-        //        posts = [Post]()
-        ref.observeSingleEvent(of: .value, with: { (snapshot: DataSnapshot) in
+        Database.fetchUserWithUID(uid: uid, completion: { (user: User) in
+//            print("Done fetching, now doing some afterwork.")
+            self.fetchPostWithUser(user: user)
+        })
+    }
+    
+    private func fetchPostWithUser(user: User) {
+        Database.database().reference().child("posts").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot: DataSnapshot) in
             guard let dictionaries = snapshot.value as? [String: Any] else { return }
             dictionaries.forEach({ (key: String, value: Any) in
                 //                print("key \(key)", "value \(value)")
                 guard let dictionary = value as? [String: Any] else { return }
-                let post = Post(dictionary: dictionary)
+                let post = Post(user: user, dictionary: dictionary)
                 self.posts.append(post)
             })
             // No need to dispatch async inside Firebase closures.
@@ -68,6 +73,11 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
 }
+
+
+
+
+
 
 
 

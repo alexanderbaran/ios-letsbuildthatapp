@@ -54,7 +54,10 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let homeController = HomeController(collectionViewLayout: homeFlowLayout)
         let homeNavigationController = templateNavigationController(unselectedImageName: "home_unselected", selectedImageName: "home_selected", rootViewController: homeController)
         
-        let searchNavigationController = templateNavigationController(unselectedImageName: "search_unselected", selectedImageName: "search_selected")
+        let searchFlowLayout = UICollectionViewFlowLayout()
+        let userSearchController = UserSearchController(collectionViewLayout: searchFlowLayout)
+        let searchNavigationController = templateNavigationController(unselectedImageName: "search_unselected", selectedImageName: "search_selected", rootViewController: userSearchController)
+        
         let plusNavigationController = templateNavigationController(unselectedImageName: "plus_unselected", selectedImageName: "plus_unselected")
         let likeNavigationController = templateNavigationController(unselectedImageName: "like_unselected", selectedImageName: "like_selected")
         

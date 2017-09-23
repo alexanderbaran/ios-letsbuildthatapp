@@ -12,17 +12,19 @@ class HomePostCell: BaseCell {
     
     var post: Post? {
         didSet {
-            guard let imageUrl = post?.imageUrl else { return }
-            photoImageView.loadImage(urlString: imageUrl)
+            guard let post = post else { return }
+            photoImageView.loadImage(urlString: post.imageUrl)
+            usernameLabel.text = post.user.username
+            userProfileImageView.loadImage(urlString: post.user.profileImgUrl)
+            captionLabel.attributedText = attributedTextForCaptionLabel(username: post.user.username, caption: post.caption, dateText: "1 week ago")
         }
     }
     
-    let userProfileImageView: UIImageView = {
-        let imageView = UIImageView()
+    let userProfileImageView: CachedImageView = {
+        let imageView = CachedImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 20
-        imageView.backgroundColor = .red
         return imageView
     }()
     
@@ -52,7 +54,6 @@ class HomePostCell: BaseCell {
         button.setImage(image, for: .normal)
         return button
     }()
-
 
     let commentButton: UIButton = {
         let button = UIButton(type: .system)
@@ -89,17 +90,20 @@ class HomePostCell: BaseCell {
     
     let captionLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Something for now"
-        let attributedText = NSMutableAttributedString(string: "Username", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
-        attributedText.append(NSAttributedString(string: " Some caption text that will perhaps wrap onto the next line.", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]))
-        // 4 means new line will have really small font size of 4 giving us a nice small gap.
-        attributedText.append(NSAttributedString(string: "\n\n", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 4)]))
-        attributedText.append(NSAttributedString(string: "1 week ago", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.gray]))
-        label.attributedText = attributedText
-//        label.backgroundColor = .yellow
         label.numberOfLines = 0 // As many lines as needed.
         return label
     }()
+    
+    // https://stackoverflow.com/questions/39027250/what-is-a-good-example-to-differentiate-between-fileprivate-and-private-in-swift
+    // Seems like this changed in Swift 4
+    private func attributedTextForCaptionLabel(username: String, caption: String, dateText: String) -> NSMutableAttributedString {
+        let attributedText = NSMutableAttributedString(string: username, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
+        attributedText.append(NSAttributedString(string: " \(caption)", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]))
+        // 4 means new line will have really small font size of 4 giving us a nice small gap.
+        attributedText.append(NSAttributedString(string: "\n\n", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 4)]))
+        attributedText.append(NSAttributedString(string: dateText, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.gray]))
+        return attributedText
+    }
     
     override func setupViews() {
         super.setupViews()

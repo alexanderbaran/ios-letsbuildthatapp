@@ -14,6 +14,8 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     private let headerId = "headerId"
     private let photoCellId = "cellId"
     
+    var userId: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,41 +24,20 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         collectionView?.register(UserProfilePhotoCell.self, forCellWithReuseIdentifier: photoCellId)
         
         fetchUser()
-        
         setupLogOutButton()
-        
-//        fetchPosts()
-        fetchOrderedPosts()
+//        fetchOrderedPosts()
     }
-    
+
     var posts = [Post]()
     
-//    fileprivate func fetchPosts() {
-//        guard let uid = Auth.auth().currentUser?.uid else { return }
-//        let ref = Database.database().reference().child("posts").child(uid)
-////        posts = [Post]()
-//        ref.observeSingleEvent(of: .value, with: { (snapshot: DataSnapshot) in
-//            guard let dictionaries = snapshot.value as? [String: Any] else { return }
-//            dictionaries.forEach({ (key: String, value: Any) in
-////                print("key \(key)", "value \(value)")
-//                guard let dictionary = value as? [String: Any] else { return }
-//                let post = Post(dictionary: dictionary)
-//                self.posts.append(post)
-//            })
-//            // No need to dispatch async inside Firebase closures.
-//            self.collectionView?.reloadData()
-//        }) { (error: Error) in
-//            print("Failed to fetch posts:", error)
-//        }
-//    }
-    
     fileprivate func fetchOrderedPosts() {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        let ref = Database.database().reference().child("posts").child(uid)
-        ref.queryOrdered(byChild: "createdDate").observe(.childAdded, with: { (snapshot: DataSnapshot) in
+        guard let uid = user?.uid else { return }
+        Database.database().reference().child("posts").child(uid).queryOrdered(byChild: "createdDate").observe(.childAdded, with: { (snapshot: DataSnapshot) in
             guard let dictionary = snapshot.value as? [String: Any] else { return }
-            let post = Post(dictionary: dictionary)
-            self.posts.append(post)
+            guard let user = self.user else { return }
+            let post = Post(user: user, dictionary: dictionary)
+            self.posts.insert(post, at: 0)
+//            self.posts.append(post)
             self.collectionView?.reloadData()
 
         }) { (error: Error) in
@@ -124,18 +105,42 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     var user: User?
     
     fileprivate func fetchUser() {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot: DataSnapshot) in
-//            print(snapshot.value ?? "")
-            guard let dictionary = snapshot.value as? [String: Any] else { return }
-            self.user = User(dictionary: dictionary)
+        let uid = userId ?? (Auth.auth().currentUser?.uid ?? "") // Parentheses not necessary but might be easier to understand.
+//        guard let uid = Auth.auth().currentUser?.uid else { return }
+        Database.fetchUserWithUID(uid: uid, completion: { (user: User) in
+            self.user = user
             /* There is also no need to async dispatch the Firebase call. The Firebase client already performs all network and disk related activities on a separate thread. It surfaces the callbacks/blocks on the main thread, so that you can interact with the UI. */
             self.navigationItem.title = self.user?.username
             /* The reason we are doing reload data here is so viewForSupplementaryElementOfKind is re run and user variable is set in header. */
             self.collectionView?.reloadData()
-        }) { (error: Error) in
-            print("Failed to fetch user:", error)
-        }
+            
+            self.fetchOrderedPosts()
+        })
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
