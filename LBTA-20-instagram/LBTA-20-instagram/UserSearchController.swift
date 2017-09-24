@@ -46,10 +46,13 @@ class UserSearchController: UICollectionViewController, UICollectionViewDelegate
         collectionView?.keyboardDismissMode = .onDrag
         
         collectionView?.register(UserSearchCell.self, forCellWithReuseIdentifier: userSearchCellId)
+
+//        navigationItem.titleView = searchBar
         
+        // This looks different on my own device that runs iOS 10.3. It looks like the search bar on tutorial.
         navigationController?.navigationBar.addSubview(searchBar)
         guard let navBar = navigationController?.navigationBar else { return }
-        searchBar.anchor(top: navBar.topAnchor, left: navBar.leftAnchor, bottom: navBar.bottomAnchor, right: navBar.rightAnchor, topConstant: 0, leftConstant: 4, bottomConstant: 0, rightConstant: -4, widthConstant: 0, heightConstant: 0)
+        searchBar.anchor(top: navBar.topAnchor, left: navBar.leftAnchor, bottom: navBar.bottomAnchor, right: navBar.rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: -8, widthConstant: 0, heightConstant: 0)
         
         fetchUsers()
     }
@@ -87,10 +90,11 @@ class UserSearchController: UICollectionViewController, UICollectionViewDelegate
                 let user = User(uid: key, dictionary: userDictionary)
                 self.users.append(user)
             })
-            self.users.sort(by: { (user1, user2) -> Bool in
-//                return user1.username < user2.username
-                return user1.username.compare(user2.username) == .orderedAscending
-            })
+//            self.users.sort(by: { (user1, user2) -> Bool in
+////                return user1.username < user2.username
+//                return user1.username.compare(user2.username) == .orderedAscending
+//            })
+            self.users.sort(by: { $0.username.compare($1.username) == .orderedAscending })
             self.filteredUsers = self.users
             self.collectionView?.reloadData()
         }) { (error) in

@@ -49,6 +49,7 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
         return fetchOptions
     }
     
+    // There is a bug. First time they ask for access on device, the images do not show. You have to press cancel and then click the plus button again in order for the images to show up.
     fileprivate func fetchPhotos() {
         let allPhotos = PHAsset.fetchAssets(with: .image, options: assetsFetchOptions())
         /* We can put all of this work inside some kind of background thread so that the UI does not hang. */

@@ -8,7 +8,15 @@
 
 import UIKit
 
+// Delegate naming convention.
+protocol HomePostCellDelegate {
+    func didTapComment(post: Post)
+}
+
 class HomePostCell: BaseCell {
+    
+    // Needs to be an optional.
+    var delegate: HomePostCellDelegate?
     
     var post: Post? {
         didSet {
@@ -16,7 +24,7 @@ class HomePostCell: BaseCell {
             photoImageView.loadImage(urlString: post.imageUrl)
             usernameLabel.text = post.user.username
             userProfileImageView.loadImage(urlString: post.user.profileImgUrl)
-            captionLabel.attributedText = attributedTextForCaptionLabel(username: post.user.username, caption: post.caption, dateText: "1 week ago")
+            captionLabel.attributedText = attributedTextForCaptionLabel(username: post.user.username, caption: post.caption, date: post.creationDate)
         }
     }
     
@@ -55,13 +63,20 @@ class HomePostCell: BaseCell {
         return button
     }()
 
-    let commentButton: UIButton = {
+    lazy var commentButton: UIButton = {
         let button = UIButton(type: .system)
         let image = UIImage(named: "comment")?.withRenderingMode(.alwaysOriginal)
         button.setImage(image, for: .normal)
+        button.addTarget(self, action: #selector(handleComment), for: .touchUpInside)
         return button
     }()
 
+    func handleComment() {
+        // Custom delegation is needed.
+        guard let post = self.post else { return }
+        delegate?.didTapComment(post: post)
+    }
+    
     let sendMessageButton: UIButton = {
         let button = UIButton(type: .system)
         let image = UIImage(named: "send2")?.withRenderingMode(.alwaysOriginal)
@@ -96,12 +111,15 @@ class HomePostCell: BaseCell {
     
     // https://stackoverflow.com/questions/39027250/what-is-a-good-example-to-differentiate-between-fileprivate-and-private-in-swift
     // Seems like this changed in Swift 4
-    private func attributedTextForCaptionLabel(username: String, caption: String, dateText: String) -> NSMutableAttributedString {
+    private func attributedTextForCaptionLabel(username: String, caption: String, date: Date) -> NSMutableAttributedString {
         let attributedText = NSMutableAttributedString(string: username, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
         attributedText.append(NSAttributedString(string: " \(caption)", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]))
         // 4 means new line will have really small font size of 4 giving us a nice small gap.
         attributedText.append(NSAttributedString(string: "\n\n", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 4)]))
-        attributedText.append(NSAttributedString(string: dateText, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.gray]))
+        
+        let timeAgoDisplay = date.timeAgoDisplay()
+        
+        attributedText.append(NSAttributedString(string: timeAgoDisplay, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.gray]))
         return attributedText
     }
     

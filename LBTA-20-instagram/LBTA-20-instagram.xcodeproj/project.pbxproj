@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3038DC31F771E800034F66F /* PreviewPhotoContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3038DC21F771E800034F66F /* PreviewPhotoContainerView.swift */; };
+		A3038DC51F7741570034F66F /* CustomAnimationPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3038DC41F7741570034F66F /* CustomAnimationPresentor.swift */; };
+		A3038DC71F77443E0034F66F /* CustomAnimationDismisser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3038DC61F77443E0034F66F /* CustomAnimationDismisser.swift */; };
+		A3038DC91F77497C0034F66F /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3038DC81F77497C0034F66F /* CommentsController.swift */; };
 		A30734411F7213D7000C28E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30734401F7213D7000C28E1 /* AppDelegate.swift */; };
 		A30734431F7213D7000C28E1 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30734421F7213D7000C28E1 /* SignUpController.swift */; };
 		A30734461F7213D7000C28E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A30734441F7213D7000C28E1 /* Main.storyboard */; };
@@ -34,12 +38,17 @@
 		A33BECD51F758E9100643105 /* FirebaseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33BECD41F758E9100643105 /* FirebaseUtils.swift */; };
 		A33BECD81F75A04F00643105 /* UserSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33BECD71F75A04F00643105 /* UserSearchController.swift */; };
 		A362637B1F75A7F40095CB6D /* UserSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A362637A1F75A7F40095CB6D /* UserSearchCell.swift */; };
+		A362637E1F76F7830095CB6D /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A362637D1F76F7830095CB6D /* CameraController.swift */; };
 		C6675795AE5DCC2B9AFC463C /* Pods_LBTA_20_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC50FD3489C86F07D7AB0C3 /* Pods_LBTA_20_instagram.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		61161C8634D8A69416E86DA0 /* Pods-LBTA-20-instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBTA-20-instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-LBTA-20-instagram/Pods-LBTA-20-instagram.release.xcconfig"; sourceTree = "<group>"; };
 		85EBC3770D46EDB3010A3D5A /* Pods-LBTA-20-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBTA-20-instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LBTA-20-instagram/Pods-LBTA-20-instagram.debug.xcconfig"; sourceTree = "<group>"; };
+		A3038DC21F771E800034F66F /* PreviewPhotoContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPhotoContainerView.swift; sourceTree = "<group>"; };
+		A3038DC41F7741570034F66F /* CustomAnimationPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationPresentor.swift; sourceTree = "<group>"; };
+		A3038DC61F77443E0034F66F /* CustomAnimationDismisser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationDismisser.swift; sourceTree = "<group>"; };
+		A3038DC81F77497C0034F66F /* CommentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsController.swift; sourceTree = "<group>"; };
 		A307343D1F7213D7000C28E1 /* LBTA-20-instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LBTA-20-instagram.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30734401F7213D7000C28E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A30734421F7213D7000C28E1 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
@@ -69,6 +78,7 @@
 		A33BECD41F758E9100643105 /* FirebaseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUtils.swift; sourceTree = "<group>"; };
 		A33BECD71F75A04F00643105 /* UserSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchController.swift; sourceTree = "<group>"; };
 		A362637A1F75A7F40095CB6D /* UserSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchCell.swift; sourceTree = "<group>"; };
+		A362637D1F76F7830095CB6D /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		FDC50FD3489C86F07D7AB0C3 /* Pods_LBTA_20_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LBTA_20_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -115,6 +125,7 @@
 			children = (
 				A30734401F7213D7000C28E1 /* AppDelegate.swift */,
 				A30734591F731069000C28E1 /* MainTabBarController.swift */,
+				A362637C1F76F75F0095CB6D /* Camera */,
 				A33BECD61F75A03F00643105 /* Search */,
 				A307347C1F74A70D000C28E1 /* Home */,
 				A30734771F749AD9000C28E1 /* Models */,
@@ -188,6 +199,7 @@
 			children = (
 				A307347F1F74A8E9000C28E1 /* HomePostCell.swift */,
 				A307347D1F74A717000C28E1 /* HomeController.swift */,
+				A3038DC81F77497C0034F66F /* CommentsController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -199,6 +211,17 @@
 				A33BECD71F75A04F00643105 /* UserSearchController.swift */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		A362637C1F76F75F0095CB6D /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				A362637D1F76F7830095CB6D /* CameraController.swift */,
+				A3038DC41F7741570034F66F /* CustomAnimationPresentor.swift */,
+				A3038DC61F77443E0034F66F /* CustomAnimationDismisser.swift */,
+				A3038DC21F771E800034F66F /* PreviewPhotoContainerView.swift */,
+			);
+			name = Camera;
 			sourceTree = "<group>";
 		};
 		EBA6FF5AFA6225D3990BD29C /* Pods */ = {
@@ -353,12 +376,16 @@
 				A30734431F7213D7000C28E1 /* SignUpController.swift in Sources */,
 				A30734741F7438AD000C28E1 /* PhotoSelectorHeader.swift in Sources */,
 				A30734801F74A8E9000C28E1 /* HomePostCell.swift in Sources */,
+				A362637E1F76F7830095CB6D /* CameraController.swift in Sources */,
 				A30734791F749AF8000C28E1 /* Post.swift in Sources */,
 				A30734721F74323C000C28E1 /* PhotoSelectorCell.swift in Sources */,
+				A3038DC91F77497C0034F66F /* CommentsController.swift in Sources */,
 				A30734561F72A0D0000C28E1 /* UIView+Anchors.swift in Sources */,
 				A30734761F744AEB000C28E1 /* SharePhotoController.swift in Sources */,
+				A3038DC31F771E800034F66F /* PreviewPhotoContainerView.swift in Sources */,
 				A362637B1F75A7F40095CB6D /* UserSearchCell.swift in Sources */,
 				A307345C1F7311BF000C28E1 /* UserProfileController.swift in Sources */,
+				A3038DC51F7741570034F66F /* CustomAnimationPresentor.swift in Sources */,
 				A30734631F733984000C28E1 /* UserProfileHeader.swift in Sources */,
 				A307345A1F731069000C28E1 /* MainTabBarController.swift in Sources */,
 				A33BECD51F758E9100643105 /* FirebaseUtils.swift in Sources */,
@@ -368,6 +395,7 @@
 				A30734411F7213D7000C28E1 /* AppDelegate.swift in Sources */,
 				A30734651F733B82000C28E1 /* CachedImageView.swift in Sources */,
 				A30734691F733E54000C28E1 /* User.swift in Sources */,
+				A3038DC71F77443E0034F66F /* CustomAnimationDismisser.swift in Sources */,
 				A307347E1F74A717000C28E1 /* HomeController.swift in Sources */,
 				A307347B1F749D3D000C28E1 /* UserProfilePhotoCell.swift in Sources */,
 			);
