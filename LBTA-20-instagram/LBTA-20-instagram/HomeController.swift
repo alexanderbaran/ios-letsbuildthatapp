@@ -85,14 +85,26 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             dictionaries.forEach({ (key: String, value: Any) in
                 //                print("key \(key)", "value \(value)")
                 guard let dictionary = value as? [String: Any] else { return }
-                let post = Post(user: user, dictionary: dictionary)
-                self.posts.append(post)
+                var post = Post(user: user, dictionary: dictionary)
+                post.id = key
+                guard let uid = Auth.auth().currentUser?.uid else { return }
+                Database.database().reference().child("likes").child(key).child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let value = snapshot.value as? Int, value == 1 {
+                        post.hasLiked = true
+                    } else {
+                        post.hasLiked = false
+                    }
+                    self.posts.append(post)
+                    self.posts.sort(by: { $0.creationDate.compare($1.creationDate) == .orderedDescending })
+                    // No need to dispatch async inside Firebase closures.
+                    self.collectionView?.reloadData()
+                    //            self.collectionView?.refreshControl?.endRefreshing()
+                    self.refreshControl.endRefreshing()
+
+                }, withCancel: { (error) in
+                    print("Failed to fetch like info for post:", error)
+                })
             })
-            self.posts.sort(by: { $0.creationDate.compare($1.creationDate) == .orderedDescending })
-            // No need to dispatch async inside Firebase closures.
-            self.collectionView?.reloadData()
-//            self.collectionView?.refreshControl?.endRefreshing()
-            self.refreshControl.endRefreshing()
         }) { (error: Error) in
             print("Failed to fetch posts:", error)
         }
@@ -123,10 +135,31 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func didTapComment(post: Post) {
-        print(post.caption)
         let layout = UICollectionViewFlowLayout()
         let commentsController = CommentsController(collectionViewLayout: layout)
+        commentsController.post = post
         navigationController?.pushViewController(commentsController, animated: true)
+    }
+    
+    func didLike(for cell: HomePostCell) {
+        print("Handling like inside of controller.")
+        guard let indexPath = collectionView?.indexPath(for: cell) else { return }
+        var post = self.posts[indexPath.item]
+        guard let postId = post.id else { return }
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let values = [uid: post.hasLiked == true ? 0 : 1]
+        Database.database().reference().child("likes").child(postId).updateChildValues(values) { (error: Error?, _) in
+            if error != nil {
+                print("Failed to like post:", error!)
+                return
+            }
+            print("Successfully liked post.")
+            post.hasLiked = !post.hasLiked
+//            self.collectionView?.reloadData()
+            // Whenever we get the post object outside of the array, we actually get a different reference for the post, so we have to modify it like this. post is a struct and not a class.
+            self.posts[indexPath.item] = post
+            self.collectionView?.reloadItems(at: [indexPath])
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

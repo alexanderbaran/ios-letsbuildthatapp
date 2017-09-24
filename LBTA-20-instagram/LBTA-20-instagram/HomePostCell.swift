@@ -11,6 +11,7 @@ import UIKit
 // Delegate naming convention.
 protocol HomePostCellDelegate {
     func didTapComment(post: Post)
+    func didLike(for cell: HomePostCell)
 }
 
 class HomePostCell: BaseCell {
@@ -25,6 +26,10 @@ class HomePostCell: BaseCell {
             usernameLabel.text = post.user.username
             userProfileImageView.loadImage(urlString: post.user.profileImgUrl)
             captionLabel.attributedText = attributedTextForCaptionLabel(username: post.user.username, caption: post.caption, date: post.creationDate)
+            let likeSelected = UIImage(named: "like_selected")?.withRenderingMode(.alwaysOriginal)
+            let likeUnSelected = UIImage(named: "like_unselected")?.withRenderingMode(.alwaysOriginal)
+            let likeButtonImage = post.hasLiked == true ? likeSelected : likeUnSelected
+            likeButton.setImage(likeButtonImage, for: .normal)
         }
     }
     
@@ -56,12 +61,17 @@ class HomePostCell: BaseCell {
         return button
     }()
     
-    let likeButton: UIButton = {
+    lazy var likeButton: UIButton = {
         let button = UIButton(type: .system)
         let image = UIImage(named: "like_unselected")?.withRenderingMode(.alwaysOriginal)
         button.setImage(image, for: .normal)
+        button.addTarget(self, action: #selector(handleLike), for: .touchUpInside)
         return button
     }()
+    
+    func handleLike() {
+        delegate?.didLike(for: self)
+    }
 
     lazy var commentButton: UIButton = {
         let button = UIButton(type: .system)

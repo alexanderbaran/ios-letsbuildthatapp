@@ -11,10 +11,14 @@ import UIKit
 // structs have default initializers for their properties unlike classes. But once you provide your own initializer then the default one is no longer valid.
 struct Post {
     
+    var id: String?
+    
     let user: User
     let imageUrl: String
     let caption: String
     let creationDate: Date
+    
+    var hasLiked: Bool = false
     
     init(user: User, dictionary: [String: Any]) {
         self.user = user
