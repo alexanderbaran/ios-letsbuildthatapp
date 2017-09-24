@@ -22,6 +22,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     var userId: String?
     
     var isGridView = true
+    var isFinishedPaging = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,16 +50,28 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     private func paginatePosts() {
         guard let uid = user?.uid else { return }
         let ref = Database.database().reference().child("posts").child(uid)
-//        let startingValue = "-KukIuJblaisWoCnKqTw"
-//        let query = ref.queryOrderedByKey().queryStarting(atValue: startingValue).queryLimited(toFirst: 3)
-        let query = ref.queryOrderedByKey()
+//        var query = ref.queryOrderedByKey()
+        var query = ref.queryOrdered(byChild: "creationDate")
         if posts.count > 0 {
-            
+            let value = posts.last?.creationDate.timeIntervalSince1970
+//            let value = posts.last?.id
+//            query = query.queryStarting(atValue: value)
+            query = query.queryEnding(atValue: value)
         }
-        query.queryLimited(toFirst: 4).observeSingleEvent(of: .value, with: { (snapshot) in
-            let allObjects = snapshot.children.allObjects as? [DataSnapshot]
+        query.queryLimited(toLast: 4).observeSingleEvent(of: .value, with: { (snapshot) in
+            guard var allObjects = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            allObjects.reverse()
+            if allObjects.count < 4 {
+                self.isFinishedPaging = true
+            }
+            // Remove the first object to prevent duplication of the first post.
+            if self.posts.count > 0 && allObjects.count > 0 {
+//                allObjects?.remove(at: 0)
+                allObjects.removeFirst()
+//                allObjects.removeLast()
+            }
             guard let user = self.user else { return }
-            allObjects?.forEach({ (snapshot) in
+            allObjects.forEach({ (snapshot) in
                 guard let dictionary = snapshot.value as? [String: Any] else { return }
                 var post = Post(user: user, dictionary: dictionary)
                 post.id = snapshot.key
@@ -117,7 +130,8 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // Show you how to fire off the paginate call. Check whether or not last cell is being rendered and we'll just fire off the paginate.
-        if indexPath.item == self.posts.count - 1 {
+        if indexPath.item == self.posts.count - 1 && !isFinishedPaging {
+            print("Paginating for more..")
             paginatePosts()
         }
         if isGridView {
