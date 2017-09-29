@@ -104,7 +104,7 @@ class LoginController: UIViewController {
     func handleShowSignUp() {
         let signUpController = SignUpController()
 //        print(navigationController) // navigationController is nil
-        /* For some reason the tutorial wanted to pushViewController on navigationController instead of just present. To use navigationController first need to set a UINavigationController in MainTabBarController. */
+        /* For some reason the tutorial wanted to pushViewController on navigationController instead of just present. To use navigationController first need to set a UINavigationController in MainTabBarController. Ø: You get a smoother and different animation when using a navigation controller. */
         navigationController?.pushViewController(signUpController, animated: true)
 //        present(signUpController, animated: true, completion: nil)
     }

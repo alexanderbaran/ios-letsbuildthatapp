@@ -186,12 +186,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Alexander Baran";
 				TargetAttributes = {
 					A37B73671F67E850008B92B8 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = ZQ32RSDG42;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
