@@ -73,6 +73,7 @@ class LoginController: UIViewController {
 //            self.mainTabBarController?.setupViewControllers()
             // rootViewController here is the MainTabBarController because we set it in AppDelegate.swift
             guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+            // The reason we setupViewControllers is because they are initialized and updated in mainTabBarController. HomeController and UserController both fetch data in viewDidLoad. HomeController is actually loaded in the beinning befofe LoginController is presented so therefore the fetching occurs without a user id. So the feed will be blank if we do not run setupViewControllers here. Also the UserController will not be blank, but will be based on the old data, if we logout from the UserController because then it is already loaded and viewDidLoad is already run. Ø: Perhaps if we used viewDidAppear then this would be easier. But then again data might take longer time to show, don't know yet.
             mainTabBarController.setupViewControllers()
             self.dismiss(animated: true, completion: nil)
         }

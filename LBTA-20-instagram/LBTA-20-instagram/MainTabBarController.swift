@@ -31,21 +31,38 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         // We do need to set the delegate to self here since we are conforming to protocol UITabBarControllerDelegate.
         self.delegate = self
         
+//        if Auth.auth().currentUser == nil {
+//            /* When the application launches for the very first time, non of the views, the MainTabController is not set up properly yet, so this right here
+//             lets us wait until the MainTabBarController is inside of the UI and then we present it. */
+//            DispatchQueue.main.async {
+//                let loginController = LoginController()
+//                // This method did not work that Ø tried.
+////                loginController.mainTabBarController = self
+//                let navigationController = UINavigationController(rootViewController: loginController)
+//                self.present(navigationController, animated: false, completion: nil)
+//            }
+//            return
+//        }
+        
         if Auth.auth().currentUser == nil {
-            /* When the application launches for the very first time, non of the views, the MainTabController is not set up properly yet, so this right here
-             lets us wait until the MainTabBarController is inside of the UI and then we present it. */
-            DispatchQueue.main.async {
-                let loginController = LoginController()
-                // This method did not work that Ø tried.
-//                loginController.mainTabBarController = self
-                let navigationController = UINavigationController(rootViewController: loginController)
-                self.present(navigationController, animated: true, completion: nil)
-            }
+            // No need to do anything else for now so we return.
             return
         }
         
         setupViewControllers()
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        // If we do it here we don't have to dispatch queue. Also it is less like flickery when we do it here instead of above.
+        if Auth.auth().currentUser == nil {
+            let loginController = LoginController()
+            let navigationController = UINavigationController(rootViewController: loginController)
+            self.present(navigationController, animated: false, completion: nil)
+            return
+        }
     }
     
     func setupViewControllers() {

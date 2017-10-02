@@ -269,12 +269,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Alexander Baran";
 				TargetAttributes = {
 					A307343C1F7213D7000C28E1 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = ZQ32RSDG42;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
