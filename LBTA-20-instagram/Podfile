@@ -6,4 +6,5 @@ target 'LBTA-20-instagram' do
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
     pod 'Firebase/Storage'
+    pod 'Firebase/Messaging'
 end

@@ -74,6 +74,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: chatMessageCellId)
         collectionView?.alwaysBounceVertical = true
 //        collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 58, right: 0)
+        // This prevents flickering of placeholder text and button on inputAccessoryView on simulator for some weird reason, but we also needs to scroll to bottom after loading messages because it does not do so automatically when setting top edge inset.
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
 //        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         collectionView?.keyboardDismissMode = .interactive

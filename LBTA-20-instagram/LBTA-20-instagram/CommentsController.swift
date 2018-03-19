@@ -9,43 +9,17 @@
 import UIKit
 import Firebase
 
-class CommentsController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout {
+class CommentsController: UICollectionViewController, UICollectionViewDelegateFlowLayout, CommentInputAccessoryViewDelegate {
     
     private let commentCellId = "commentCellId"
     
     var post: Post?
     
-    lazy var keyboardInputTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Enter Comment"
-        textField.delegate = self
-        return textField
-    }()
-    
-    // https://stackoverflow.com/questions/34980391/entering-text-into-ui-textfield-by-pressing-return-button
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        handleSubmit()
-        return true
-    }
-    
-    let keyboardInputContainerSeparator: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
-        return view
-    }()
-    
-    lazy var submitButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Submit", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.addTarget(self, action: #selector(handleSubmit), for: .touchUpInside)
-        return button
-    }()
-    
-    func handleSubmit() {
+    func didSubmit(for comment: String?) {
         // Make sure the submitButton is not below the UITextField.
-        guard let text = keyboardInputTextField.text, !text.isEmpty else { return }
+        //        guard let text = keyboardInputTextField.text, !text.isEmpty else { return }
+        //        guard let text = keyboardInputContainerView.textField.text, !text.isEmpty else { return }
+        guard let text = comment, !text.isEmpty else { return }
         guard let postId = post?.id else { return }
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let values = ["text": text, "creationDate": Date().timeIntervalSince1970, "uid": uid] as [String: Any]
@@ -55,34 +29,56 @@ class CommentsController: UICollectionViewController, UITextFieldDelegate, UICol
                 return
             }
             print("Successfully inserted comment.")
-            self.keyboardInputTextField.text = nil
+//            self.keyboardInputContainerView.textField.text = nil
+            self.commentInputContainerView.clearCommentText()
         }
     }
     
     // This needs to be referenceable outside of inputAccessoryView getter in order for the textfield to be typeable.
-    lazy var keyboardInputContainerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
-        view.addSubview(self.keyboardInputTextField)
-        view.addSubview(self.keyboardInputContainerSeparator)
-        view.addSubview(self.submitButton)
-        self.keyboardInputTextField.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: self.submitButton.leftAnchor, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
-        self.keyboardInputContainerSeparator.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0.5)
-        self.submitButton.anchor(top: view.topAnchor, left: nil, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: -12, widthConstant: 50, heightConstant: 0)
-        return view
+//    lazy var commentInputContainerView: CommentInputAccessoryView = { [weak self] in
+//        guard let object = self else { return CommentInputAccessoryView() }
+//        let frame = CGRect(x: 0, y: 0, width: object.view.frame.width, height: 50)
+//        let commentInputAccessoryView = CommentInputAccessoryView(frame: frame)
+//        commentInputAccessoryView.delegate = object
+//        return commentInputAccessoryView
+//    }()
+    
+    // Classes are not being deinitialized. Might possibly lead to memory leak.
+    lazy var commentInputContainerView: CommentInputAccessoryView = {
+        let frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
+        let commentInputAccessoryView = CommentInputAccessoryView(frame: frame)
+        commentInputAccessoryView.delegate = self
+        return commentInputAccessoryView
     }()
+
+//    let commentInputContainerView: CommentInputAccessoryView = {
+//        return CommentInputAccessoryView()
+//    }()
     
     override var inputAccessoryView: UIView? {
-        return keyboardInputContainerView
+        return commentInputContainerView
     }
     
     override var canBecomeFirstResponder: Bool {
         return true
     }
     
+    override init(collectionViewLayout layout: UICollectionViewLayout) {
+        super.init(collectionViewLayout: layout)
+        hidesBottomBarWhenPushed = true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        print("CommentsController deinit")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationItem.title = "Comments"
         collectionView?.backgroundColor = .white
         collectionView?.alwaysBounceVertical = true

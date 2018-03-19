@@ -39,6 +39,8 @@
 		A33BECD81F75A04F00643105 /* UserSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33BECD71F75A04F00643105 /* UserSearchController.swift */; };
 		A362637B1F75A7F40095CB6D /* UserSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A362637A1F75A7F40095CB6D /* UserSearchCell.swift */; };
 		A362637E1F76F7830095CB6D /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A362637D1F76F7830095CB6D /* CameraController.swift */; };
+		A373E8FB2060221900D92961 /* CommentInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373E8FA2060221900D92961 /* CommentInputAccessoryView.swift */; };
+		A373E8FD20605C7E00D92961 /* CommentInputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373E8FC20605C7E00D92961 /* CommentInputTextView.swift */; };
 		A3A04C391F77EEFF0032584D /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A04C381F77EEFF0032584D /* CommentCell.swift */; };
 		A3A04C3B1F77F2120032584D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A04C3A1F77F2120032584D /* Comment.swift */; };
 		C6675795AE5DCC2B9AFC463C /* Pods_LBTA_20_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC50FD3489C86F07D7AB0C3 /* Pods_LBTA_20_instagram.framework */; };
@@ -81,6 +83,9 @@
 		A33BECD71F75A04F00643105 /* UserSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchController.swift; sourceTree = "<group>"; };
 		A362637A1F75A7F40095CB6D /* UserSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchCell.swift; sourceTree = "<group>"; };
 		A362637D1F76F7830095CB6D /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		A373E8F92060007D00D92961 /* LBTA-20-instagram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "LBTA-20-instagram.entitlements"; sourceTree = "<group>"; };
+		A373E8FA2060221900D92961 /* CommentInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAccessoryView.swift; sourceTree = "<group>"; };
+		A373E8FC20605C7E00D92961 /* CommentInputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputTextView.swift; sourceTree = "<group>"; };
 		A3A04C381F77EEFF0032584D /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		A3A04C3A1F77F2120032584D /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		FDC50FD3489C86F07D7AB0C3 /* Pods_LBTA_20_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LBTA_20_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +132,7 @@
 		A307343F1F7213D7000C28E1 /* LBTA-20-instagram */ = {
 			isa = PBXGroup;
 			children = (
+				A373E8F92060007D00D92961 /* LBTA-20-instagram.entitlements */,
 				A30734401F7213D7000C28E1 /* AppDelegate.swift */,
 				A30734591F731069000C28E1 /* MainTabBarController.swift */,
 				A362637C1F76F75F0095CB6D /* Camera */,
@@ -205,6 +211,8 @@
 				A307347F1F74A8E9000C28E1 /* HomePostCell.swift */,
 				A307347D1F74A717000C28E1 /* HomeController.swift */,
 				A3A04C381F77EEFF0032584D /* CommentCell.swift */,
+				A373E8FC20605C7E00D92961 /* CommentInputTextView.swift */,
+				A373E8FA2060221900D92961 /* CommentInputAccessoryView.swift */,
 				A3038DC81F77497C0034F66F /* CommentsController.swift */,
 			);
 			name = Home;
@@ -277,6 +285,11 @@
 						DevelopmentTeam = ZQ32RSDG42;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -355,6 +368,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-LBTA-20-instagram/Pods-LBTA-20-instagram-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -362,6 +376,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -391,6 +406,7 @@
 				A30734761F744AEB000C28E1 /* SharePhotoController.swift in Sources */,
 				A3038DC31F771E800034F66F /* PreviewPhotoContainerView.swift in Sources */,
 				A362637B1F75A7F40095CB6D /* UserSearchCell.swift in Sources */,
+				A373E8FB2060221900D92961 /* CommentInputAccessoryView.swift in Sources */,
 				A307345C1F7311BF000C28E1 /* UserProfileController.swift in Sources */,
 				A3038DC51F7741570034F66F /* CustomAnimationPresentor.swift in Sources */,
 				A30734631F733984000C28E1 /* UserProfileHeader.swift in Sources */,
@@ -400,6 +416,7 @@
 				A307346E1F74039F000C28E1 /* PhotoSelectorController.swift in Sources */,
 				A30734541F729EE7000C28E1 /* Extensions.swift in Sources */,
 				A30734411F7213D7000C28E1 /* AppDelegate.swift in Sources */,
+				A373E8FD20605C7E00D92961 /* CommentInputTextView.swift in Sources */,
 				A3A04C391F77EEFF0032584D /* CommentCell.swift in Sources */,
 				A30734651F733B82000C28E1 /* CachedImageView.swift in Sources */,
 				A3A04C3B1F77F2120032584D /* Comment.swift in Sources */,
@@ -532,6 +549,7 @@
 			baseConfigurationReference = 85EBC3770D46EDB3010A3D5A /* Pods-LBTA-20-instagram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "LBTA-20-instagram/LBTA-20-instagram.entitlements";
 				DEVELOPMENT_TEAM = ZQ32RSDG42;
 				INFOPLIST_FILE = "LBTA-20-instagram/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -546,6 +564,7 @@
 			baseConfigurationReference = 61161C8634D8A69416E86DA0 /* Pods-LBTA-20-instagram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "LBTA-20-instagram/LBTA-20-instagram.entitlements";
 				DEVELOPMENT_TEAM = ZQ32RSDG42;
 				INFOPLIST_FILE = "LBTA-20-instagram/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

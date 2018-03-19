@@ -32,7 +32,6 @@ class MessageCell: BaseCell {
             if let date = message?.date {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "h:mm a"
-                
                 let elapsedTimeInSeconds = NSDate().timeIntervalSince(date as Date)
                 let secondsInDays: TimeInterval = 60 * 60 * 24
                 if elapsedTimeInSeconds > 7 * secondsInDays {
@@ -40,7 +39,6 @@ class MessageCell: BaseCell {
                 } else if elapsedTimeInSeconds > secondsInDays {
                     dateFormatter.dateFormat = "EEE"
                 }
-                
                 timeLabel.text = dateFormatter.string(from: date as Date)
             }
         }
